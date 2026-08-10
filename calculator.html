@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blox values-calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="calc-body">
+<nav class="ognav">
+    <img src="./images/Blox Values Logo.png" alt="blox values logo" class="index-logo">
+    <div class="nav-links">
+        <a href="./index.html" class="nav">Home</a>
+        <a href="./values.html" class="nav">Values</a>
+        <a href="./calculator.html" class="nav">Calculator</a>
+        <a href="./info.html" class="nav">Info</a>
+        <!-- <a href="./credits.html" class="nav">Credits</a> -->
+    </div>
+</nav>
+<main class="calculator-page">
+
+    <h1 class="calc-title">Trade Calculator</h1>
+    <p class="calc-subtitle">
+Trade smarter. Avoid scams. Get the best deals!</p>
+
+    <div class="calc-container">
+
+        <!-- YOUR TRADE -->
+        <div class="trade-side">
+            <h2>Your Trade</h2>
+
+            <section id="you">
+                <button class="button-you">+</button>
+                <button class="button-you">+</button>
+                <button class="button-you">+</button>
+                <button class="button-you">+</button>
+            </section>
+        </div>
+
+
+        <!-- TRADE ARROW -->
+        <div class="trade-middle">
+            <h2>↔</h2>
+        </div>
+
+
+        <!-- THEIR TRADE -->
+        <div class="trade-side">
+            <h2>Their Trade</h2>
+
+            <section id="them">
+                <button class="button-them">+</button>
+                <button class="button-them">+</button>
+                <button class="button-them">+</button>
+                <button class="button-them">+</button>
+            </section>
+        </div>
+
+    </div>
+
+
+    <!-- RESULTS -->
+    <section class="results">
+
+        <div class="result-row">
+            <span>Your Value:</span>
+            <strong><span id="your-value">0</span></strong>
+        </div>
+
+        <div class="result-row">
+            <span>Their Value:</span>
+            <strong><span id="their-value">0</span></strong>
+        </div>
+
+        <div class="result-row">
+            <span>Difference:</span>
+            <strong><span id="difference">0</span></strong>
+        </div>
+
+        <div class="result-row result-final">
+            <span>Result:</span>
+            <strong id="result">Waiting for items...</strong>
+        </div>
+
+    </section>
+
+</main>
+<!-- <h1>Trade Calculator</h1>
+<p>Trade smarter. Avoid scams. Get the best deals!</p>
+<div class="calc-section">
+        <h3>YOU</h3>
+
+    <section id="you">
+        <button class="button-you">+</button>
+        <button class="button-you">+</button>
+        <button class="button-you">+</button>
+        <button class="button-you">+</button>
+    </section>
+    <section id="them">
+        <h3>THEM</h3>
+        <button class="button-them">+</button>
+        <button class="button-them">+</button>
+        <button class="button-them">+</button>
+        <button class="button-them">+</button>
+    </section>
+    <section>
+        <p>Your Value: <span id="your-value">0</span></p>
+        <p>Their Value: <span id="their-value">0</span></p>
+        <p>Trade Difference:  <span id="difference">0</span></p>
+        <p>Trade Result: <span id="result">Waiting for items...</span></p>
+    </section> -->
+    <!-- <p id="random">west</p>
+    <button id="fire">fire</button>
+    <p id="calc">20</p>
+    <button id="totalexample">tap me</button>
+    <button id="hand">ex2</button>
+</div> -->
+
+<div id="fruitpicker">
+<h2>Search Fruits</h2>
+<p>Click an item to add it to your trade.</p>
+<a href="./calculator.html">←</a>
+<div class="fixed-search">
+    <section class="search">
+       <input type="text" placeholder="search">
+    </section>
+    
+</div>
+<div class="popup" style="display: flex; flex-wrap: wrap; justify-content: centr;">
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Dragon-West</h4>
+        <img src="./images/Dragon-West.png" onclick="selectFruit('images/Dragon-West.png', 5100)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Dragon-East</h4>
+        <img src="./images/Dragon-East.png" onclick="selectFruit('images/Dragon-East.png', 4700)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Control</h4>
+        <img src="./images/Control.png" onclick="selectFruit('images/Control.png', 210)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Kitsune</h4>
+        <img src="./images/Kitsune.png" onclick="selectFruit('images/Kitsune.png', 690)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Yeti</h4>
+        <img src="./images/Yeti.png" onclick="selectFruit('images/Yeti.png', 140)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Tiger</h4>
+        <img src="./images/Tiger.png" onclick="selectFruit('images/Tiger.png', 160)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Spirit</h4>
+        <img src="./images/Spirit.png" onclick="selectFruit('images/Spirit.png', 20)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Gas</h4>
+        <img src="./images/Gas.png" onclick="selectFruit('images/Gas.png', 70)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Venom</h4>
+        <img src="./images/Venom.png" onclick="selectFruit('images/Venom.png', 25)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Shadow</h4>
+        <img src="./images/Shadow.png" onclick="selectFruit('images/Shadow.png', 10)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Dough</h4>
+        <img src="./images/Dough.png" onclick="selectFruit('images/Dough.png', 40)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">T-Rex</h4>
+        <img src="./images/T-Rex.png" onclick="selectFruit('images/T-Rex.png', 35)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Mammoth</h4>
+        <img src="./images/Mammoth.png" onclick="selectFruit('images/Mammoth.png', 20)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Gravity</h4>
+        <img src="./images/Gravity.png" onclick="selectFruit('images/Gravity.png', 15)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Blizzard</h4>
+        <img src="./images/Blizzard.png" onclick="selectFruit('images/Blizzard.png', 10)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Pain</h4>
+        <img src="./images/Pain.png" onclick="selectFruit('images/Pain.png', 10)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Lightning</h4>
+        <img src="./images/Lightning.png" onclick="selectFruit('images/Lightning.png', 70)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Portal</h4>
+        <img src="./images/Portal.png" onclick="selectFruit('images/Portal.png', 10)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Phoenix</h4>
+        <img src="./images/Phoenix.png" onclick="selectFruit('images/Phoenix.png', 5)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Sound</h4>
+        <img src="./images/Sound.png" onclick="selectFruit('images/Sound.png', 3.5)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Creation</h4>
+        <img src="./images/Creation.png" onclick="selectFruit('images/Creation.png', 3)" style="width: 100px;">
+    </div>
+
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Love</h4>
+        <img src="./images/Love.png" onclick="selectFruit('images/Love.png', 3.2)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Buddha</h4>
+        <img src="./images/Buddha.png" onclick="selectFruit('images/Buddha.png', 10)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Quake</h4>
+        <img src="./images/Quake.png" onclick="selectFruit('images/Quake.png', 2.5)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Magma</h4>
+        <img src="./images/Magma.png" onclick="selectFruit('images/Magma.png', 2)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Ghost</h4>
+        <img src="./images/Ghost.png" onclick="selectFruit('images/Ghost.png', 1)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Rubber</h4>
+        <img src="./images/Rubber.png" onclick="selectFruit('images/Rubber.png', 0.900)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Light</h4>
+        <img src="./images/Light.png" onclick="selectFruit('images/Light.png', 1)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Diamond</h4>
+        <img src="./images/Diamond.png" onclick="selectFruit('images/Diamond.png', 0.700)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Eagle</h4>
+        <img src="./images/Eagle.png" onclick="selectFruit('images/Eagle.png', 0.500)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Dark</h4>
+        <img src="./images/Dark.png" onclick="selectFruit('images/Dark.png', 0.300)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Sand</h4>
+        <img src="./images/Sand.png" onclick="selectFruit('images/Sand.png', 0.250)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Ice</h4>
+        <img src="./images/Ice.png" onclick="selectFruit('images/Ice.png', 0.500)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Flame</h4>
+        <img src="./images/Flame.png" onclick="selectFruit('images/Flame.png', 0.200)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Spike</h4>
+        <img src="./images/Spike.png" onclick="selectFruit('images/Spike.png', 0.150)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Smoke</h4>
+        <img src="./images/Smoke.png" onclick="selectFruit('images/Smoke.png', 0.100)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Bomb</h4>
+        <img src="./images/Bomb.png" onclick="selectFruit('images/Bomb.png', 0.050)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Spring</h4>
+        <img src="./images/Spring.png" onclick="selectFruit('images/Spring.png', 0.030)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Blade</h4>
+        <img src="./images/Blade.png" onclick="selectFruit('images/Blade.png', 0.035)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Spin</h4>
+        <img src="./images/Spin.png" onclick="selectFruit('images/Spin.png', 0.015)" style="width: 100px;">
+    </div>
+    <div>
+        <h4 class="fruit-names" style="text-align: center;">Rocket</h4>
+        <img src="./images/Rocket.png" onclick="selectFruit('images/Rocket.png', 0.005)" style="width: 100px;">
+    </div>
+</div>
+</div>
+<script>
+              // {NOTE TO SELF OF EXPERIMENTS}
+    // let random = document.getElementById("random");
+    // random.innerText="east";
+
+    // let fire=document.getElementById("fire");
+    // fire.onclick=function(){
+    //     fire.innerText="ice";
+    // };
+
+    // let calc=document.getElementById("calc");
+    // calc.innerText=90+10+100;
+
+    // let total=0;
+    // let totalexample=document.getElementById("totalexample");
+    // totalexample.onclick=function(){
+    // total=total+20;
+    // totalexample.innerText=total;
+    // if(total>100){
+    //     totalexample.innerHTML="hurray";
+    // }
+    // else if(total>50){
+    //     totalexample.innerHTML="nice";
+    // }
+    // else{
+    //     totalexample.innerHTML="noob";
+    // }
+    // }
+
+    // let hand=document.getElementById("hand");
+    // function anything(){
+    //     hand.innerHTML="hello";
+    // }
+    //     anything(); 
+
+    let currentButton = null;
+
+let totalYou = 0;
+let totalThem = 0;
+
+const yourValue = document.getElementById("your-value");
+const theirValue = document.getElementById("their-value");
+const difference = document.getElementById("difference");
+const result = document.getElementById("result");
+
+
+/* VALUE FORMATTER */
+
+function formatValue(value) {
+
+    // value is stored in MILLIONS
+
+    if (value >= 1000) {
+        return (value / 1000)
+            .toFixed(2)
+            .replace(/\.?0+$/, "") + "B";
+    }
+
+    if (value >= 1) {
+        return value
+            .toFixed(2)
+            .replace(/\.?0+$/, "") + "M";
+    }
+
+    if (value > 0) {
+        return (value * 1000)
+            .toFixed(2)
+            .replace(/\.?0+$/, "") + "K";
+    }
+
+    return "0";
+}
+
+
+function updateValues() {
+
+    yourValue.textContent =
+        totalYou > 0 ? formatValue(totalYou) : "0";
+
+    theirValue.textContent =
+        totalThem > 0 ? formatValue(totalThem) : "0";
+
+    const diff = totalYou - totalThem;
+
+    if (diff > 0) {
+        difference.textContent = "+" + formatValue(diff);
+    }
+    else if (diff < 0) {
+        difference.textContent = "-" + formatValue(Math.abs(diff));
+    }
+    else {
+        difference.textContent = "0";
+    }
+
+    if (totalYou === 0 && totalThem === 0) {
+        result.textContent = "Waiting for items...";
+    }
+    else if (diff > 0) {
+        result.textContent = "🔴 L-Trade";
+    }
+    else if (diff < 0) {
+        result.textContent = "🟢 W-Trade";
+    }
+    else {
+        result.textContent = "⚪ Fair Trade";
+    }
+}
+
+
+const buttons = document.querySelectorAll(
+    ".button-you, .button-them"
+);
+
+const fruitpicker = document.getElementById("fruitpicker");
+
+
+buttons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        if (button.dataset.value) {
+
+            const isYou =
+                button.classList.contains("button-you");
+
+            if (isYou) {
+                totalYou -= Number(button.dataset.value);
+            }
+            else {
+                totalThem -= Number(button.dataset.value);
+            }
+
+            button.innerHTML = "+";
+            delete button.dataset.value;
+
+            updateValues();
+            return;
+        }
+
+        currentButton = button;
+        fruitpicker.style.bottom = "0";
+
+    });
+
+});
+
+
+function selectFruit(image, value) {
+
+    const isYou =
+        currentButton.classList.contains("button-you");
+
+    if (currentButton.dataset.value) {
+
+        if (isYou) {
+            totalYou -= Number(currentButton.dataset.value);
+        }
+        else {
+            totalThem -= Number(currentButton.dataset.value);
+        }
+
+        currentButton.innerHTML = "+";
+        delete currentButton.dataset.value;
+
+        updateValues();
+        return;
+    }
+
+    currentButton.innerHTML =
+        `<img src="${image}">`;
+
+    currentButton.dataset.value =
+        Number(value);
+
+    if (isYou) {
+        totalYou += Number(value);
+    }
+    else {
+        totalThem += Number(value);
+    }
+
+    updateValues();
+
+    fruitpicker.style.bottom = "-100%";
+}
+
+
+updateValues();
+
+fruitpicker.img = "50%";
+
+
+const searchInput =
+    document.querySelector(".search input");
+
+const fruitItems =
+    document.querySelectorAll(".popup > div");
+
+
+searchInput.addEventListener("input", function () {
+
+    const search =
+        this.value.toLowerCase().trim();
+
+    fruitItems.forEach(function (item) {
+
+        const name =
+            item.querySelector(".fruit-names");
+
+        if (!name) return;
+
+        const fruitName =
+            name.textContent.toLowerCase();
+
+        item.style.display =
+            fruitName.includes(search)
+                ? ""
+                : "none";
+
+    });
+
+});
+
+</script>
+</body>
+</html>
