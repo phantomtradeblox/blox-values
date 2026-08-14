@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Venom Fruit</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Venom.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .venom-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .venom-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .venom-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .venom-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .venom-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .venom-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .venom-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           BASE VENOM CARD
+        ========================= */
+
+        .venom-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .venom-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           VENOM VARIANTS
+           BLUE
+        ========================= */
+
+        .venom-main-card,
+        .plastic-venom-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .venom-main-card:hover,
+        .plastic-venom-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           VENOM IMAGES
+        ========================= */
+
+        .venom-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .venom-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .venom-card:hover
+        .venom-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .venom-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .venom-info {
+            width:
+                100%;
+        }
+
+        .venom-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .venom-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .venom-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           PROFILE
+           BLUE
+        ========================= */
+
+        .venom-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .venom-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .venom-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .venom-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .venom-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .venom-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .venom-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .venom-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .venom-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .venom-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .pros-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           CONS
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .cons-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           ABILITIES
+        ========================= */
+
+        .abilities-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           BEST FOR
+        ========================= */
+
+        .best-for-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .venom-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .venom-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .venom-page {
+                padding-top:
+                    95px;
+            }
+
+            .venom-header {
+                padding:
+                    25px 15px;
+            }
+
+            .venom-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .venom-header p {
+                font-size:
+                    15px;
+            }
+
+            .venom-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .venom-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .venom-image {
+                height:
+                    110px;
+            }
+
+            .venom-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .venom-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .venom-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .venom-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .venom-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .venom-header p {
+                font-size:
+                    14px;
+            }
+
+            .venom-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .venom-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .venom-image {
+                height:
+                    90px;
+            }
+
+            .venom-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .venom-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .venom-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .venom-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .venom-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .venom-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .venom-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .venom-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .venom-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .venom-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .venom-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         VENOM PAGE
+    ========================= -->
+
+    <main class="venom-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="venom-header">
+
+            <h1>
+                🐍 Venom Fruit
+            </h1>
+
+            <p>
+                Explore the Venom family and compare
+                its known versions by value, demand,
+                Robux price, trend, and source.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             VENOM VERSIONS
+        ========================= -->
+
+        <section class="venom-section">
+
+            <h2 class="venom-section-title">
+                Venom Versions
+            </h2>
+
+
+            <div class="venom-grid">
+
+
+                <!-- =========================
+                     VENOM
+                ========================= -->
+
+                <article class="venom-card venom-main-card">
+
+                    <div class="venom-image">
+
+                        <img
+                            src="./images/Venom.png"
+                            alt="Venom"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Venom
+                    </h3>
+
+                    <div class="venom-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                55M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                9/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                3,000
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC VENOM
+                ========================= -->
+
+                <article class="venom-card plastic-venom-card">
+
+                    <div class="venom-image">
+
+                        <img
+                            src="./images/Plastic-Venom.png"
+                            alt="Plastic Venom"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Venom
+                    </h3>
+
+                    <div class="venom-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                50M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-medium">
+                                7/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                699
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             VENOM PROFILE
+        ========================= -->
+
+        <section class="venom-profile">
+
+
+            <div class="venom-profile-header">
+
+                <h2>
+                    🐍 About Venom
+                </h2>
+
+                <p>
+                    A quick overview of Venom's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+
+            <div class="venom-profile-grid">
+
+
+                <!-- =========================
+                     1. FAMILY DATA
+                ========================= -->
+
+                <div class="venom-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Venom value: 55M
+                        </li>
+
+                        <li>
+                            Plastic Venom value: 50M
+                        </li>
+
+                        <li>
+                            Standard Venom has strong demand.
+                        </li>
+
+                        <li>
+                            Venom is known for strong
+                            damage and poison-based attacks.
+                        </li>
+
+                        <li>
+                            Venom is a popular choice
+                            for PvP-focused players.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     2. ABILITIES
+                ========================= -->
+
+                <div class="venom-info-box abilities-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Poison-based ranged attacks.
+                        </li>
+
+                        <li>
+                            Strong damage-over-time pressure.
+                        </li>
+
+                        <li>
+                            Large area-of-effect attacks.
+                        </li>
+
+                        <li>
+                            Venom-based attacks can control
+                            space around opponents.
+                        </li>
+
+                        <li>
+                            Strong combo potential when
+                            abilities are chained correctly.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     3. PROS
+                ========================= -->
+
+                <div class="venom-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Extremely strong damage output.
+                        </li>
+
+                        <li>
+                            Excellent poison pressure.
+                        </li>
+
+                        <li>
+                            Strong area control.
+                        </li>
+
+                        <li>
+                            Very effective in PvP.
+                        </li>
+
+                        <li>
+                            Good combo potential.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     4. CONS
+                ========================= -->
+
+                <div class="venom-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Expensive compared with many fruits.
+                        </li>
+
+                        <li>
+                            Some attacks require accurate timing.
+                        </li>
+
+                        <li>
+                            Can be harder to use effectively
+                            without practice.
+                        </li>
+
+                        <li>
+                            Large attacks can require
+                            careful positioning.
+                        </li>
+
+                        <li>
+                            Not every move is easy to combo.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     5. BEST FOR
+                ========================= -->
+
+                <div class="venom-info-box best-for-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            PvP players.
+                        </li>
+
+                        <li>
+                            Players who enjoy high damage.
+                        </li>
+
+                        <li>
+                            Area control.
+                        </li>
+
+                        <li>
+                            Poison-based combat.
+                        </li>
+
+                        <li>
+                            Players who enjoy aggressive
+                            combo-based fighting.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     6. VERSIONS
+                ========================= -->
+
+                <div class="venom-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Venom
+                        </li>
+
+                        <li>
+                            Plastic Venom
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+                <div class="mode-grid">
+
+
+                    <!-- PVP -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🥊 PvP
+                        </h4>
+
+                        <p>
+                            Excellent for aggressive PvP,
+                            high damage, poison pressure,
+                            and controlling the battlefield.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            👹 Transformed
+                        </h4>
+
+                        <p>
+                            Venom's transformation increases
+                            combat pressure and gives the user
+                            access to a more powerful fighting style.
+                        </p>
+
+                    </div>
+
+
+                    <!-- POISON -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            ☠️ Poison Pressure
+                        </h4>
+
+                        <p>
+                            Uses Venom's poison-based attacks
+                            to maintain pressure and punish
+                            opponents who stay in dangerous areas.
+                        </p>
+
+                    </div>
+
+
+                    <!-- AREA CONTROL -->
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="venom-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Venom Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

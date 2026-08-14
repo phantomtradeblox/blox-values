@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Spirit Fruit</title>
+
+    <!-- External stylesheet controls the navigation -->
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Spirit.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .spirit-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .spirit-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .spirit-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .spirit-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .spirit-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .spirit-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .spirit-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           BASE SPIRIT CARD
+        ========================= */
+
+        .spirit-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .spirit-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           STANDARD SPIRIT
+        ========================= */
+
+        .spirit-standard-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .spirit-standard-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        .spirit-standard-card .spirit-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           PLASTIC SPIRIT
+        ========================= */
+
+        .plastic-spirit-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .plastic-spirit-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        .plastic-spirit-card .spirit-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           SPIRIT IMAGES
+        ========================= */
+
+        .spirit-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .spirit-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .spirit-card:hover
+        .spirit-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .spirit-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .spirit-info {
+            width:
+                100%;
+        }
+
+        .spirit-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .spirit-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .spirit-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .spirit-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .spirit-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .spirit-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .spirit-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .spirit-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+           ALL BLUE
+        ========================= */
+
+        .spirit-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .spirit-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .spirit-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .spirit-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .spirit-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+           ICON STAYS GREEN
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .pros-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           CONS
+           ICON STAYS RED
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .cons-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           ABILITIES
+        ========================= */
+
+        .abilities-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           BEST FOR
+        ========================= */
+
+        .best-for-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           VERSIONS
+        ========================= */
+
+        .versions-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .combat-modes {
+            margin-top:
+                25px;
+        }
+
+        .combat-modes h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+        }
+
+        .combat-mode {
+            padding:
+                15px;
+
+            margin-bottom:
+                10px;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+
+            color:
+                #b8d4ff;
+
+            line-height:
+                1.5;
+
+            font-size:
+                14px;
+        }
+
+        .combat-mode strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .spirit-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .spirit-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+           BLUE
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .spirit-page {
+                padding-top:
+                    95px;
+            }
+
+            .spirit-header {
+                padding:
+                    25px 15px;
+            }
+
+            .spirit-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .spirit-header p {
+                font-size:
+                    15px;
+            }
+
+            .spirit-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .spirit-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .spirit-image {
+                height:
+                    110px;
+            }
+
+            .spirit-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .spirit-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .spirit-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .spirit-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .spirit-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .spirit-header p {
+                font-size:
+                    14px;
+            }
+
+            .spirit-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .spirit-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .spirit-image {
+                height:
+                    90px;
+            }
+
+            .spirit-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .spirit-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .spirit-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .spirit-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .spirit-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .spirit-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .spirit-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .spirit-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .spirit-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .spirit-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .spirit-updated {
+                font-size:
+                    11px;
+            }
+
+            .combat-mode {
+                font-size:
+                    11px;
+
+                padding:
+                    12px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         CONTROLLED BY style.css
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         SPIRIT PAGE
+    ========================= -->
+
+    <main class="spirit-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="spirit-header">
+
+            <h1>
+                👻 Spirit Fruit
+            </h1>
+
+            <p>
+                Explore the Spirit family and compare
+                its known versions by value, demand,
+                Robux price, trend, and source.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             SPIRIT VERSIONS
+        ========================= -->
+
+        <section class="spirit-section">
+
+            <h2 class="spirit-section-title">
+                Spirit Versions
+            </h2>
+
+            <div class="spirit-grid">
+
+
+                <!-- =========================
+                     SPIRIT
+                ========================= -->
+
+                <article class="spirit-card spirit-standard-card">
+
+                    <div class="spirit-image">
+
+                        <img
+                            src="./images/Spirit.png"
+                            alt="Spirit"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Spirit
+                    </h3>
+
+                    <div class="spirit-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                20M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong>
+                                6/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                N/A
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Stock / Gatcha / Spawn
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC SPIRIT
+                ========================= -->
+
+                <article class="spirit-card plastic-spirit-card">
+
+                    <div class="spirit-image">
+
+                        <img
+                            src="./images/Plastic-Spirit.png"
+                            alt="Plastic Spirit"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Spirit
+                    </h3>
+
+                    <div class="spirit-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                70M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong>
+                                3/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ←→
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SPIRIT PROFILE
+        ========================= -->
+
+        <section class="spirit-profile">
+
+
+            <div class="spirit-profile-header">
+
+                <h2>
+                    👻 About Spirit
+                </h2>
+
+                <p>
+                    A quick overview of Spirit's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+
+            <div class="spirit-profile-grid">
+
+
+                <!-- =========================
+                     1. FAMILY DATA
+                ========================= -->
+
+                <div class="spirit-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spirit value: 20M.
+                        </li>
+
+                        <li>
+                            Spirit demand: 6/10.
+                        </li>
+
+                        <li>
+                            Spirit has stock, Gatcha, and spawn chances listed in the values data.
+                        </li>
+
+                        <li>
+                            Plastic Spirit value: 70M.
+                        </li>
+
+                        <li>
+                            Plastic Spirit demand: 3/10.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     2. ABILITIES
+                ========================= -->
+
+                <div class="spirit-info-box abilities-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spirit-based ranged attacks.
+                        </li>
+
+                        <li>
+                            Strong area-of-effect pressure.
+                        </li>
+
+                        <li>
+                            Multiple attack options for combo setups.
+                        </li>
+
+                        <li>
+                            Good mobility and combat pressure.
+                        </li>
+
+                        <li>
+                            Strong utility for experienced players.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     3. PROS
+                ========================= -->
+
+                <div class="spirit-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Strong combat potential.
+                        </li>
+
+                        <li>
+                            Good damage and area coverage.
+                        </li>
+
+                        <li>
+                            Useful for PvP and grinding.
+                        </li>
+
+                        <li>
+                            Multiple abilities give it good combo potential.
+                        </li>
+
+                        <li>
+                            Standard Spirit has better demand than Plastic Spirit.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     4. CONS
+                ========================= -->
+
+                <div class="spirit-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Some abilities require good timing.
+                        </li>
+
+                        <li>
+                            Its moves can take practice to use effectively.
+                        </li>
+
+                        <li>
+                            Lower demand than some of the highest-value fruits.
+                        </li>
+
+                        <li>
+                            Plastic Spirit has significantly lower demand.
+                        </li>
+
+                        <li>
+                            New players may need time to learn its combos.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     5. BEST FOR
+                ========================= -->
+
+                <div class="spirit-info-box best-for-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            PvP players.
+                        </li>
+
+                        <li>
+                            Players who enjoy combo-based combat.
+                        </li>
+
+                        <li>
+                            Grinding and general combat.
+                        </li>
+
+                        <li>
+                            Players who want a versatile fruit.
+                        </li>
+
+                        <li>
+                            Collectors interested in Spirit versions.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     6. VERSIONS
+                ========================= -->
+
+                <div class="spirit-info-box versions-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spirit
+                        </li>
+
+                        <li>
+                            Plastic Spirit
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="combat-modes">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        PvP:
+                    </strong>
+
+                    Spirit is best suited for players who can
+                    chain abilities and manage their attacks
+                    effectively during fights.
+
+                </div>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        Grinding:
+                    </strong>
+
+                    Spirit can be used for general grinding
+                    thanks to its damage and area coverage.
+
+                </div>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        Trading:
+                    </strong>
+
+                    Standard Spirit has a 20M value and 6/10
+                    demand, while Plastic Spirit has a 70M value
+                    and 3/10 demand according to the supplied
+                    values
+
+                </div>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        Collection:
+                    </strong>
+
+                    Spirit and Plastic Spirit provide two
+                    different versions for players who collect
+                    fruit variants.
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="spirit-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Spirit Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

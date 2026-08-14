@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Mammoth Fruit</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Mammoth.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mammoth-page {
+            width: 100%;
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+        .mammoth-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .mammoth-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .mammoth-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+        .mammoth-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .mammoth-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .mammoth-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+        .mammoth-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .mammoth-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mammoth-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .mammoth-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .mammoth-card:hover
+        .mammoth-image img {
+            transform:
+                scale(1.08);
+        }
+
+        .mammoth-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+        .mammoth-info {
+            width:
+                100%;
+        }
+
+        .mammoth-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .mammoth-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .mammoth-info strong {
+            color:
+                #6ea8ff;
+        }
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+        .mammoth-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+        .mammoth-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .mammoth-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .mammoth-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+        .mammoth-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+        .mammoth-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .mammoth-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .mammoth-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .mammoth-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .mammoth-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+        .mammoth-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .mammoth-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+        @media (max-width: 768px) {
+
+            .mammoth-page {
+                padding-top:
+                    95px;
+            }
+
+            .mammoth-header {
+                padding:
+                    25px 15px;
+            }
+
+            .mammoth-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .mammoth-header p {
+                font-size:
+                    15px;
+            }
+
+            .mammoth-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .mammoth-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .mammoth-image {
+                height:
+                    110px;
+            }
+
+            .mammoth-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .mammoth-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .mammoth-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .mammoth-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+        @media (max-width: 667px) {
+
+            .mammoth-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .mammoth-header p {
+                font-size:
+                    14px;
+            }
+
+            .mammoth-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .mammoth-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .mammoth-image {
+                height:
+                    90px;
+            }
+
+            .mammoth-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .mammoth-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .mammoth-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .mammoth-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .mammoth-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .mammoth-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .mammoth-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .mammoth-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .mammoth-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .mammoth-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .mammoth-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+    <main class="mammoth-page">
+
+        <header class="mammoth-header">
+
+            <h1>
+                🦣 Mammoth Fruit
+            </h1>
+
+            <p>
+                Explore the Mammoth family and compare
+                its known versions by value, demand,
+                Robux price, trend, and source.
+            </p>
+
+        </header>
+
+        <section class="mammoth-section">
+
+            <h2 class="mammoth-section-title">
+                Mammoth Versions
+            </h2>
+
+            <div class="mammoth-grid">
+
+                <article class="mammoth-card">
+
+                    <div class="mammoth-image">
+
+                        <img
+                            src="./images/Mammoth.png"
+                            alt="Mammoth"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Mammoth
+                    </h3>
+
+                    <div class="mammoth-info">
+
+                        <p>
+                            <span>Value</span>
+                            <strong>10M</strong>
+                        </p>
+
+                        <p>
+                            <span>Demand</span>
+                            <strong class="demand-high">
+                                9/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>Robux</span>
+                            <strong>2,350</strong>
+                        </p>
+
+                        <p>
+                            <span>Trend</span>
+                            <strong>↗</strong>
+                        </p>
+
+                        <p>
+                            <span>Source</span>
+                            <strong>Shop</strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="mammoth-card">
+
+                    <div class="mammoth-image">
+
+                        <img
+                            src="./images/Plastic-Mammoth.png"
+                            alt="Plastic Mammoth"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Mammoth
+                    </h3>
+
+                    <div class="mammoth-info">
+
+                        <p>
+                            <span>Value</span>
+                            <strong>700M</strong>
+                        </p>
+
+                        <p>
+                            <span>Demand</span>
+                            <strong class="demand-medium">
+                                7/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>Robux</span>
+                            <strong>599</strong>
+                        </p>
+
+                        <p>
+                            <span>Trend</span>
+                            <strong>↗</strong>
+                        </p>
+
+                        <p>
+                            <span>Source</span>
+                            <strong>Event</strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="mammoth-profile">
+
+            <div class="mammoth-profile-header">
+
+                <h2>
+                    🦣 About Mammoth
+                </h2>
+
+                <p>
+                    A quick overview of Mammoth's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+            <div class="mammoth-profile-grid">
+
+                <div class="mammoth-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Mammoth value: 10M
+                        </li>
+
+                        <li>
+                            Plastic Mammoth value: 700M
+                        </li>
+
+                        <li>
+                            Mammoth demand: 9/10
+                        </li>
+
+                        <li>
+                            Mammoth is a Mythical Beast fruit.
+                        </li>
+
+                        <li>
+                            The fruit is known for its transformation ability.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="mammoth-info-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Powerful transformation into a mammoth.
+                        </li>
+
+                        <li>
+                            Large area-of-effect attacks.
+                        </li>
+
+                        <li>
+                            Strong close-range damage.
+                        </li>
+
+                        <li>
+                            High durability during transformation.
+                        </li>
+
+                        <li>
+                            Strong pressure against groups of enemies.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="mammoth-info-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Strong transformation.
+                        </li>
+
+                        <li>
+                            High damage potential.
+                        </li>
+
+                        <li>
+                            Good area control.
+                        </li>
+
+                        <li>
+                            Strong PvP pressure.
+                        </li>
+
+                        <li>
+                            Excellent for aggressive combat.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="mammoth-info-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Large transformation can make positioning difficult.
+                        </li>
+
+                        <li>
+                            Some attacks require good timing.
+                        </li>
+
+                        <li>
+                            Can be difficult for new players to master.
+                        </li>
+
+                        <li>
+                            Movement can feel less flexible while transformed.
+                        </li>
+
+                        <li>
+                            High-value trades can require careful negotiation.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="mammoth-info-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Experienced PvP players.
+                        </li>
+
+                        <li>
+                            Aggressive combat.
+                        </li>
+
+                        <li>
+                            Area-of-effect damage.
+                        </li>
+
+                        <li>
+                            Players who enjoy transformation-based combat.
+                        </li>
+
+                        <li>
+                            Players who want a Mythical Beast fruit.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="mammoth-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Mammoth
+                        </li>
+
+                        <li>
+                            Plastic Mammoth
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+                <div class="mode-grid">
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🦣 Mammoth Transformation
+                        </h4>
+
+                        <p>
+                            Transform into the Mammoth to increase
+                            combat power, durability, and pressure
+                            against opponents.
+                        </p>
+
+                    </div>
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🥊 PvP
+                        </h4>
+
+                        <p>
+                            Strong for aggressive PvP thanks to
+                            heavy attacks, area pressure, and
+                            transformation-based combat.
+                        </p>
+
+                    </div>
+
+                    <div class="mode-card">
+
+                        <h4>
+                            💥 Area Damage
+                        </h4>
+
+                        <p>
+                            Effective against multiple opponents
+                            because of its large attacks and strong
+                            area-of-effect pressure.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mammoth-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+        </section>
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Mammoth Collection
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

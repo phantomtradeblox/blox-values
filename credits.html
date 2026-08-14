@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blox Values - Patch Notes</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #00111f;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 30px 15px;
+        }
+
+        .patch-page {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            margin-top: 70px;
+        }
+
+        .patch-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .patch-header h1 {
+            margin: 0;
+            font-size: 40px;
+            color: white;
+            text-shadow: 0 0 15px #00d4ff;
+        }
+
+        .patch-header p {
+            color: #9edfff;
+            margin-top: 10px;
+        }
+
+        .patch-card {
+            background: rgba(12, 20, 35, 0.95);
+            border: 2px solid #00d4ff;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 20px rgba(0, 212, 255, 0.18);
+        }
+
+        .patch-card h2 {
+            margin-top: 0;
+            color: #00d4ff;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+        }
+
+        .patch-card ul {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .patch-card li {
+            margin: 10px 0;
+            line-height: 1.5;
+            color: #e8faff;
+        }
+
+        .patch-card strong {
+            color: #00d4ff;
+        }
+
+        .value-box {
+            margin-top: 15px;
+            padding: 15px;
+
+            background: rgba(0, 212, 255, 0.06);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+
+            color: #9edfff;
+            line-height: 1.8;
+        }
+
+        .value-box span {
+            color: #00ffb7;
+            font-weight: bold;
+        }
+
+        .version {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 14px;
+
+            border-radius: 20px;
+            background: rgba(0, 212, 255, 0.12);
+            border: 1px solid #00d4ff;
+
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            color: #718a99;
+            font-size: 14px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 667px) {
+
+            body {
+                padding: 20px 10px;
+            }
+
+            .patch-header h1 {
+                font-size: 30px;
+            }
+
+            .patch-card {
+                padding: 18px;
+                border-radius: 16px;
+            }
+
+            .patch-card h2 {
+                font-size: 21px;
+            }
+
+            .patch-card li {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<nav class="ognav">
+    <img src="./images/Blox Values Logo.png" alt="blox values logo" class="index-logo">
+    <div class="nav-links">
+        <a href="./index.html" class="nav">Home</a>
+        <a href="./values.html" class="nav">Values</a>
+        <a href="./calculator.html" class="nav">Calculator</a>
+        <a href="./info.html" class="nav">Info</a>
+        <a href="./credits.html" class="nav">Credits</a>
+    </div>
+</nav>
+<body>
+
+    <main class="patch-page">
+
+        <header class="patch-header">
+            <h1>🛠️ Blox Values Patch Notes</h1>
+            <p>Latest fixes and improvements</p>
+
+            <div class="version">
+                Latest Update
+            </div>
+        </header>
+
+
+        <section class="patch-card">
+            <h2>📱 Mobile Improvements</h2>
+
+            <ul>
+                <li>Improved compatibility with smaller phone screens.</li>
+                <li>Values page now supports <strong>2 fruit profiles per row</strong> on small screens.</li>
+                <li>Fruit profile containers now shrink correctly.</li>
+                <li>Fixed inner fruit sections overflowing their containers.</li>
+                <li>Reduced unwanted horizontal overflow.</li>
+            </ul>
+        </section>
+
+
+        <section class="patch-card">
+            <h2>🧭 Navigation</h2>
+
+            <ul>
+                <li>Kept the original navigation design.</li>
+                <li>Improved mobile sizing without replacing the navigation with a hamburger menu.</li>
+                <li>Reduced navigation overflow issues on smaller screens.</li>
+            </ul>
+        </section>
+
+
+        <section class="patch-card">
+            <h2>🧮 Trade Calculator</h2>
+
+            <ul>
+                <li>Fixed unwanted white space around the calculator.</li>
+                <li>Improved calculator sizing on mobile.</li>
+                <li>Kept the results section in its table-style layout.</li>
+                <li>Improved automatic trade-value display.</li>
+            </ul>
+        </section>
+
+
+        <section class="patch-card">
+            <h2>💰 Value Formatting</h2>
+
+            <ul>
+                <li>Added automatic <strong>K</strong> formatting for thousands.</li>
+                <li>Added automatic <strong>M</strong> formatting for millions.</li>
+                <li>Added automatic <strong>B</strong> formatting for billions.</li>
+                <li>Trade differences now use the same value formatting.</li>
+            </ul>
+
+            <div class="value-box">
+                0.5 → <span>500K</span><br>
+                1 → <span>1M</span><br>
+                15 → <span>15M</span><br>
+                630 → <span>630M</span><br>
+                1000 → <span>1B</span><br>
+                2500 → <span>2.5B</span>
+            </div>
+        </section>
+
+
+        <section class="patch-card">
+            <h2>🍎 Fruit Picker</h2>
+
+            <ul>
+                <li>Improved popup positioning.</li>
+                <li>Improved popup sizing.</li>
+                <li>Styled the popup heading and description.</li>
+                <li>Improved the fruit grid.</li>
+                <li>Fixed fruit images overflowing their slots.</li>
+                <li>Fixed fruit search functionality.</li>
+            </ul>
+        </section>
+
+
+        <section class="patch-card">
+            <h2>🧹 General Fixes</h2>
+
+            <ul>
+                <li>Removed unnecessary page overflow.</li>
+                <li>Improved page behavior on smaller screens.</li>
+                <li>Preserved the original Blox Values visual style.</li>
+                <li>Mobile improvements were made without introducing a hamburger menu.</li>
+            </ul>
+        </section>
+
+
+        <footer class="footer">
+            Blox Values • Patch Notes
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Spike Fruit</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Spike.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spike-page {
+            width: 100%;
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .spike-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .spike-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .spike-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .spike-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .spike-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        /*
+         * Spike has ONE version only,
+         * so the card is not placed inside
+         * a two-column grid.
+         */
+        .spike-grid {
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            width:
+                100%;
+        }
+
+        /* =========================
+           SPIKE CARD
+        ========================= */
+
+        .spike-card {
+            width:
+                100%;
+
+            max-width:
+                520px;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .spike-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        /* =========================
+           SPIKE IMAGE
+        ========================= */
+
+        .spike-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .spike-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .spike-card:hover
+        .spike-image img {
+            transform:
+                scale(1.08);
+        }
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .spike-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .spike-info {
+            width:
+                100%;
+        }
+
+        .spike-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .spike-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .spike-info strong {
+            color:
+                #6ea8ff;
+        }
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .spike-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .spike-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .spike-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .spike-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .spike-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .spike-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .spike-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .spike-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .spike-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .spike-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .spike-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .spike-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .spike-page {
+                padding-top:
+                    95px;
+            }
+
+            .spike-header {
+                padding:
+                    25px 15px;
+            }
+
+            .spike-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .spike-header p {
+                font-size:
+                    15px;
+            }
+
+            .spike-card {
+                max-width:
+                    100%;
+            }
+
+            .spike-image {
+                height:
+                    110px;
+            }
+
+            .spike-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .spike-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .spike-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .spike-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .spike-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .spike-header p {
+                font-size:
+                    14px;
+            }
+
+            .spike-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .spike-image {
+                height:
+                    90px;
+            }
+
+            .spike-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .spike-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .spike-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .spike-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .spike-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .spike-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .spike-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .spike-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .spike-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .spike-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .spike-updated {
+                font-size:
+                    11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- =========================
+         SPIKE PAGE
+    ========================= -->
+
+    <main class="spike-page">
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="spike-header">
+
+            <h1>
+                🦔 Spike Fruit
+            </h1>
+
+            <p>
+                Explore Spike and compare its trading
+                value, demand, Robux price, trend,
+                and source.
+            </p>
+
+        </header>
+
+        <!-- =========================
+             SPIKE VERSION
+        ========================= -->
+
+        <section class="spike-section">
+
+            <h2 class="spike-section-title">
+                Spike Version
+            </h2>
+
+            <div class="spike-grid">
+
+                <article class="spike-card">
+
+                    <div class="spike-image">
+
+                        <img
+                            src="./images/Spike.png"
+                            alt="Spike"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Spike
+                    </h3>
+
+                    <div class="spike-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                30K
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-medium">
+                                6/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                380
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             SPIKE PROFILE
+        ========================= -->
+
+        <section class="spike-profile">
+
+            <div class="spike-profile-header">
+
+                <h2>
+                    🦔 About Spike
+                </h2>
+
+                <p>
+                    A quick overview of Spike's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+            <div class="spike-profile-grid">
+
+                <!-- FAMILY DATA -->
+
+                <div class="spike-info-box">
+
+                    <h3>
+                        📊 Fruit Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spike value: 30K
+                        </li>
+
+                        <li>
+                            Demand: 6/10.
+                        </li>
+
+                        <li>
+                            Robux price: 380.
+                        </li>
+
+                        <li>
+                            Spike is a common low-value fruit.
+                        </li>
+
+                        <li>
+                            Easy to obtain compared with higher-tier fruits.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- ABILITIES -->
+
+                <div class="spike-info-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spike-based attacks.
+                        </li>
+
+                        <li>
+                            Strong close-range pressure.
+                        </li>
+
+                        <li>
+                            Useful area damage.
+                        </li>
+
+                        <li>
+                            Can pressure opponents at close range.
+                        </li>
+
+                        <li>
+                            Straightforward moveset for newer players.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- PROS -->
+
+                <div class="spike-info-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Easy to obtain.
+                        </li>
+
+                        <li>
+                            Affordable compared with high-value fruits.
+                        </li>
+
+                        <li>
+                            Simple abilities.
+                        </li>
+
+                        <li>
+                            Useful for early-game players.
+                        </li>
+
+                        <li>
+                            Decent combat potential for its tier.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- CONS -->
+
+                <div class="spike-info-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Low trading value.
+                        </li>
+
+                        <li>
+                            Lower demand than higher-tier fruits.
+                        </li>
+
+                        <li>
+                            Limited compared with stronger fruits.
+                        </li>
+
+                        <li>
+                            Not ideal for high-value trades.
+                        </li>
+
+                        <li>
+                            Can be outclassed by better fruits.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- BEST FOR -->
+
+                <div class="spike-info-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Newer players.
+                        </li>
+
+                        <li>
+                            Early-game progression.
+                        </li>
+
+                        <li>
+                            Simple combat.
+                        </li>
+
+                        <li>
+                            Players learning fruit abilities.
+                        </li>
+
+                        <li>
+                            Small or low-value trades.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- VERSIONS -->
+
+                <div class="spike-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spike
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+                <div class="mode-grid">
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🥊 PvP
+                        </h4>
+
+                        <p>
+                            Basic close-range PvP option
+                            for players learning combat
+                            and attack timing.
+                        </p>
+
+                    </div>
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🦔 Spike Attacks
+                        </h4>
+
+                        <p>
+                            Focuses on using Spike-based
+                            attacks to deal damage and
+                            pressure opponents.
+                        </p>
+
+                    </div>
+
+                    <div class="mode-card">
+
+                        <h4>
+                            💥 Area Pressure
+                        </h4>
+
+                        <p>
+                            Useful for applying pressure
+                            around opponents with attacks
+                            that cover an area.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- LAST UPDATED -->
+
+            <div class="spike-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Spike Collection
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

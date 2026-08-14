@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Spider Fruit</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Spider.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .spider-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .spider-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .spider-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .spider-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .spider-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .spider-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .spider-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr);
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           SPIDER CARD
+        ========================= */
+
+        .spider-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .spider-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           SPIDER IMAGE
+        ========================= */
+
+        .spider-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .spider-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .spider-card:hover
+        .spider-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .spider-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .spider-info {
+            width:
+                100%;
+        }
+
+        .spider-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .spider-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .spider-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .spider-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .spider-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .spider-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .spider-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .spider-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .spider-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .spider-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .spider-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .spider-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .spider-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           COMBAT MODES
+           COMBAT ONLY
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .spider-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .spider-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .spider-page {
+                padding-top:
+                    95px;
+            }
+
+            .spider-header {
+                padding:
+                    25px 15px;
+            }
+
+            .spider-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .spider-header p {
+                font-size:
+                    15px;
+            }
+
+            .spider-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .spider-image {
+                height:
+                    110px;
+            }
+
+            .spider-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .spider-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .spider-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .spider-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .spider-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .spider-header p {
+                font-size:
+                    14px;
+            }
+
+            .spider-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .spider-image {
+                height:
+                    90px;
+            }
+
+            .spider-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .spider-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .spider-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .spider-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .spider-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .spider-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .spider-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .spider-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .spider-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .spider-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .spider-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         SPIDER PAGE
+    ========================= -->
+
+    <main class="spider-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="spider-header">
+
+            <h1>
+                🕷️ Spider Fruit
+            </h1>
+
+            <p>
+                Explore Spider and its combat-focused
+                abilities, trading value, demand, and
+                different ways it can be used in battle.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             SPIDER VERSION
+        ========================= -->
+
+        <section class="spider-section">
+
+            <h2 class="spider-section-title">
+                Spider Version
+            </h2>
+
+
+            <div class="spider-grid">
+
+
+                <!-- =========================
+                     SPIDER
+                ========================= -->
+
+                <article class="spider-card">
+
+                    <div class="spider-image">
+
+                        <img
+                            src="./images/Spider.png"
+                            alt="Spider"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Spider
+                    </h3>
+
+                    <div class="spider-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                5.0M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-medium">
+                                7/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                1,800
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SPIDER PROFILE
+        ========================= -->
+
+        <section class="spider-profile">
+
+
+            <div class="spider-profile-header">
+
+                <h2>
+                    🕷️ About Spider
+                </h2>
+
+                <p>
+                    A quick overview of Spider's trading
+                    value, abilities, strengths, weaknesses,
+                    and combat uses.
+                </p>
+
+            </div>
+
+
+            <div class="spider-profile-grid">
+
+
+                <!-- =========================
+                     FAMILY DATA
+                ========================= -->
+
+                <div class="spider-info-box">
+
+                    <h3>
+                        📊 Fruit Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spider value: 5.0M.
+                        </li>
+
+                        <li>
+                            Spider is a Legendary fruit.
+                        </li>
+
+                        <li>
+                            Spider is known for strong
+                            combo potential.
+                        </li>
+
+                        <li>
+                            Spider has strong ranged
+                            pressure.
+                        </li>
+
+                        <li>
+                            Spider can be effective in PvP.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     ABILITIES
+                ========================= -->
+
+                <div class="spider-info-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Web-based ranged attacks.
+                        </li>
+
+                        <li>
+                            Strong area pressure.
+                        </li>
+
+                        <li>
+                            Useful combo tools.
+                        </li>
+
+                        <li>
+                            Good movement and positioning
+                            options.
+                        </li>
+
+                        <li>
+                            Can pressure opponents from range.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     PROS
+                ========================= -->
+
+                <div class="spider-info-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Strong combo potential.
+                        </li>
+
+                        <li>
+                            Good PvP pressure.
+                        </li>
+
+                        <li>
+                            Useful ranged attacks.
+                        </li>
+
+                        <li>
+                            Good control over enemy positioning.
+                        </li>
+
+                        <li>
+                            Can be very effective with
+                            accurate ability usage.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     CONS
+                ========================= -->
+
+                <div class="spider-info-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Some abilities require good aim.
+                        </li>
+
+                        <li>
+                            Missed attacks can leave the user
+                            open to counterattacks.
+                        </li>
+
+                        <li>
+                            Requires practice for consistent
+                            combos.
+                        </li>
+
+                        <li>
+                            Less forgiving for inexperienced
+                            players.
+                        </li>
+
+                        <li>
+                            Its effectiveness depends heavily
+                            on accurate ability chaining.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     BEST FOR
+                ========================= -->
+
+                <div class="spider-info-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            PvP players.
+                        </li>
+
+                        <li>
+                            Combo-focused players.
+                        </li>
+
+                        <li>
+                            Players who enjoy ranged attacks.
+                        </li>
+
+                        <li>
+                            Players who like controlling
+                            enemy movement.
+                        </li>
+
+                        <li>
+                            Players who want a technical
+                            Legendary fruit.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     VERSION
+                ========================= -->
+
+                <div class="spider-info-box">
+
+                    <h3>
+                        ✨ Version
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Spider
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+                 COMBAT ONLY
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+                <div class="mode-grid">
+
+
+                    <!-- PvP -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🥊 PvP
+                        </h4>
+
+                        <p>
+                            Strong for PvP thanks to its
+                            ranged attacks, combo potential,
+                            and ability to pressure opponents.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Combo -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🔗 Combo
+                        </h4>
+
+                        <p>
+                            Best when abilities are chained
+                            together accurately to keep an
+                            opponent under pressure.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Ranged -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🕸️ Ranged Pressure
+                        </h4>
+
+                        <p>
+                            Uses web-based attacks to control
+                            space, punish opponents, and create
+                            openings for follow-up attacks.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="spider-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Spider Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

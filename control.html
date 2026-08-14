@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Control Fruit</title>
+
+    <!-- External stylesheet controls the navigation -->
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(3, 9, 37, .84),
+                    rgba(3, 9, 37, .94)
+                ),
+                url("./images/Control.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .control-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .control-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 15, 32, .78);
+
+            border:
+                1px solid
+                rgba(0, 212, 255, .35);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(0, 212, 255, .15);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+
+        .control-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 15px #00d4ff,
+                0 0 35px rgba(0, 212, 255, .35);
+        }
+
+
+        .control-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                650px;
+
+            color:
+                #9edfff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           CONTROL SECTION
+        ========================= */
+
+        .control-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+
+        .control-section-title {
+            text-align:
+                center;
+
+            color:
+                #00d4ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(0, 212, 255, .6);
+        }
+
+
+        .control-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           CONTROL CARD
+           ALL BLUE
+        ========================= */
+
+        .control-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(8, 18, 35, .94);
+
+            border:
+                2px solid
+                rgba(0, 212, 255, .75);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(0, 212, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+
+        .control-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #00d4ff;
+
+            box-shadow:
+                0 0 28px
+                rgba(0, 212, 255, .35);
+        }
+
+
+        /* =========================
+           PLASTIC CONTROL
+           STILL BLUE
+        ========================= */
+
+        .plastic-control-card {
+            border-color:
+                rgba(0, 212, 255, .75);
+
+            box-shadow:
+                0 0 20px
+                rgba(0, 212, 255, .13);
+        }
+
+
+        .plastic-control-card:hover {
+            border-color:
+                #00d4ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(0, 212, 255, .35);
+        }
+
+
+        /* =========================
+           CONTROL IMAGE
+        ========================= */
+
+        .control-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+
+        .control-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+
+        .control-card:hover
+        .control-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .control-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .control-info {
+            width:
+                100%;
+        }
+
+
+        .control-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, .08);
+
+            color:
+                #9edfff;
+        }
+
+
+        .control-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+
+        .control-info strong {
+            color:
+                #00d4ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+           1-4 RED
+           5-7 YELLOW
+           8-10 GREEN
+        ========================= */
+
+        .demand-1,
+        .demand-2,
+        .demand-3,
+        .demand-4 {
+            color:
+                #ff3333 !important;
+        }
+
+
+        .demand-5,
+        .demand-6,
+        .demand-7 {
+            color:
+                #ffd633 !important;
+        }
+
+
+        .demand-8,
+        .demand-9,
+        .demand-10 {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           CONTROL PROFILE
+        ========================= */
+
+        .control-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(8, 18, 40, .96),
+                    rgba(12, 20, 35, .94)
+                );
+
+            border:
+                1px solid
+                rgba(0, 212, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(0, 212, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .control-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .control-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #00d4ff;
+        }
+
+
+        .control-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #9edfff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .control-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+           ALL BLUE
+        ========================= */
+
+        .control-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(0, 212, 255, .045);
+
+            border:
+                1px solid
+                rgba(0, 212, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+
+        .control-info-box:hover {
+            border-color:
+                rgba(0, 212, 255, .55);
+
+            background:
+                rgba(0, 212, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .control-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #00d4ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(0, 212, 255, .4);
+        }
+
+
+        .control-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+
+        .control-info-box li {
+            color:
+                #dff8ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+           GREEN ICON
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(0, 212, 255, .18);
+        }
+
+
+        .pros-box h3 {
+            color:
+                #00ff66;
+        }
+
+
+        /* =========================
+           CONS
+           RED ICON
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(0, 212, 255, .18);
+        }
+
+
+        .cons-box h3 {
+            color:
+                #ff5555;
+        }
+
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #00d4ff;
+
+            font-size:
+                20px;
+        }
+
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0, 0, 0, .25);
+
+            border:
+                1px solid
+                rgba(0, 212, 255, .2);
+
+            border-radius:
+                14px;
+        }
+
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #9edfff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .control-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                15px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+
+        .control-updated strong {
+            color:
+                #00d4ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0, 0, 0, .95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #00d4ff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(0, 212, 255, .45);
+        }
+
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .control-page {
+                padding-top:
+                    95px;
+            }
+
+
+            .control-header {
+                padding:
+                    25px 15px;
+            }
+
+
+            .control-header h1 {
+                font-size:
+                    32px;
+            }
+
+
+            .control-header p {
+                font-size:
+                    15px;
+            }
+
+
+            .control-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+
+            .control-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+
+            .control-image {
+                height:
+                    110px;
+            }
+
+
+            .control-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+
+            .control-card h3 {
+                font-size:
+                    16px;
+            }
+
+
+            .control-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+
+            .control-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+
+
+            .mode-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .control-header h1 {
+                font-size:
+                    28px;
+            }
+
+
+            .control-header p {
+                font-size:
+                    14px;
+            }
+
+
+            .control-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+
+            .control-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+
+            .control-image {
+                height:
+                    90px;
+            }
+
+
+            .control-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+
+            .control-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+
+            .control-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+
+            .control-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+
+            .control-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+
+            .control-profile-header p {
+                font-size:
+                    13px;
+            }
+
+
+            .control-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+
+            .control-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+
+            .control-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+
+            .control-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .control-updated {
+                font-size:
+                    11px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         NAV IS NOT STYLED HERE
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         CONTROL PAGE
+    ========================= -->
+
+    <main class="control-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="control-header">
+
+            <h1>
+                🌀 Control Fruit
+            </h1>
+
+            <p>
+                Explore the Control family and compare
+                each variant's value, demand, Robux price,
+                trend, source, abilities, strengths,
+                and weaknesses.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             CONTROL VARIANTS
+        ========================= -->
+
+        <section class="control-section">
+
+            <h2 class="control-section-title">
+                Control Variants
+            </h2>
+
+
+            <div class="control-grid">
+
+
+                <!-- =========================
+                     CONTROL
+                ========================= -->
+
+                <article class="control-card">
+
+                    <div class="control-image">
+
+                        <img
+                            src="./images/Control.png"
+                            alt="Control"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Control
+                    </h3>
+
+
+                    <div class="control-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                120M
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-7">
+                                7/10
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                4000
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Dealer
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC CONTROL
+                ========================= -->
+
+                <article class="control-card plastic-control-card">
+
+                    <div class="control-image">
+
+                        <img
+                            src="./images/Plastic-Control.webp"
+                            alt="Plastic Control"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Plastic Control
+                    </h3>
+
+
+                    <div class="control-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                120M
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-7">
+                                7/10
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTROL PROFILE
+        ========================= -->
+
+        <section class="control-profile">
+
+
+            <div class="control-profile-header">
+
+                <h2>
+                    🌀 About Control
+                </h2>
+
+                <p>
+                    A complete overview of the Control
+                    family and its reworked combat system.
+                </p>
+
+            </div>
+
+
+            <div class="control-profile-grid">
+
+
+                <!-- =========================
+                     1. FAMILY DATA
+                ========================= -->
+
+                <div class="control-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Control value: 120M
+                        </li>
+
+                        <li>
+                            Plastic Control value: 120M
+                        </li>
+
+                        <li>
+                            Control demand: 7/10
+                        </li>
+
+                        <li>
+                            Plastic Control demand: 7/10
+                        </li>
+
+                        <li>
+                            Control Robux price: 4,000
+                        </li>
+
+                        <li>
+                            Plastic Control Robux price: 0
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     2. ABILITIES
+                ========================= -->
+
+                <div class="control-info-box">
+
+                    <h3>
+                        ⚡ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Large Domain-based combat system
+                        </li>
+
+                        <li>
+                            High combo potential
+                        </li>
+
+                        <li>
+                            Strong mobility
+                        </li>
+
+                        <li>
+                            Multiple combat modes
+                        </li>
+
+                        <li>
+                            Powerful area control
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     3. PROS
+                ========================= -->
+
+                <div class="control-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Extremely high combo potential
+                        </li>
+
+                        <li>
+                            Strong area control
+                        </li>
+
+                        <li>
+                            Versatile combat options
+                        </li>
+
+                        <li>
+                            Excellent mobility
+                        </li>
+
+                        <li>
+                            Very strong in skilled hands
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     4. CONS
+                ========================= -->
+
+                <div class="control-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            High skill requirement
+                        </li>
+
+                        <li>
+                            Difficult for beginners
+                        </li>
+
+                        <li>
+                            Expensive fruit
+                        </li>
+
+                        <li>
+                            Requires practice to master
+                        </li>
+
+                        <li>
+                            Can be demanding on weaker devices
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     5. BEST FOR
+                ========================= -->
+
+                <div class="control-info-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            PvP
+                        </li>
+
+                        <li>
+                            Combo building
+                        </li>
+
+                        <li>
+                            Skilled players
+                        </li>
+
+                        <li>
+                            Trading
+                        </li>
+
+                        <li>
+                            Endgame gameplay
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     6. VERSIONS
+                ========================= -->
+
+                <div class="control-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Control
+                        </li>
+
+                        <li>
+                            Plastic Control
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+
+                <div class="mode-grid">
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            Base
+                        </h4>
+
+                        <p>
+                            Control's standard combat mode.
+                            It provides the foundation for
+                            the reworked moveset and Domain
+                            mechanics.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            Dagger
+                        </h4>
+
+                        <p>
+                            A close-range mode centered around
+                            dagger attacks and offensive pressure.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            Fist
+                        </h4>
+
+                        <p>
+                            A melee-focused mode designed around
+                            close combat and alternate combo routes.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 REWORK
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    🔄 Rework
+                </h3>
+
+
+                <div class="control-info-box">
+
+                    <ul>
+
+                        <li>
+                            Control received a major rework.
+                        </li>
+
+                        <li>
+                            Its combat system was redesigned
+                            around its Domain.
+                        </li>
+
+                        <li>
+                            New combat modes give Control
+                            additional playstyles.
+                        </li>
+
+                        <li>
+                            The reworked fruit focuses heavily
+                            on skilled combat and combos.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="control-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Control Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

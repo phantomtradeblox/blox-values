@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Gas Fruit</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Gas.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .gas-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .gas-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .gas-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .gas-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .gas-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .gas-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .gas-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           BASE GAS CARD
+        ========================= */
+
+        .gas-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .gas-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           GAS VARIANTS
+           BLUE
+        ========================= */
+
+        .gas-main-card,
+        .plastic-gas-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .gas-main-card:hover,
+        .plastic-gas-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           GAS IMAGES
+        ========================= */
+
+        .gas-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .gas-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .gas-card:hover
+        .gas-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .gas-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .gas-info {
+            width:
+                100%;
+        }
+
+        .gas-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .gas-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .gas-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+           1-4 RED
+           5-7 YELLOW
+           8-10 GREEN
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           PROFILE
+           BLUE
+        ========================= */
+
+        .gas-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .gas-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .gas-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .gas-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .gas-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .gas-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .gas-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .gas-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .gas-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .gas-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .pros-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           CONS
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .cons-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           ABILITIES
+        ========================= */
+
+        .abilities-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           BEST FOR
+        ========================= */
+
+        .best-for-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           COMBAT MODES
+           GAS-SPECIFIC ONLY
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .gas-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .gas-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .gas-page {
+                padding-top:
+                    95px;
+            }
+
+            .gas-header {
+                padding:
+                    25px 15px;
+            }
+
+            .gas-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .gas-header p {
+                font-size:
+                    15px;
+            }
+
+            .gas-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .gas-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .gas-image {
+                height:
+                    110px;
+            }
+
+            .gas-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .gas-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .gas-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .gas-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .gas-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .gas-header p {
+                font-size:
+                    14px;
+            }
+
+            .gas-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .gas-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .gas-image {
+                height:
+                    90px;
+            }
+
+            .gas-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .gas-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .gas-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .gas-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .gas-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .gas-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .gas-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .gas-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .gas-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .gas-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .gas-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         GAS PAGE
+    ========================= -->
+
+    <main class="gas-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="gas-header">
+
+            <h1>
+                💨 Gas Fruit
+            </h1>
+
+            <p>
+                Explore the Gas family and compare
+                its known versions by value, demand,
+                Robux price, trend, and source.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             GAS VERSIONS
+        ========================= -->
+
+        <section class="gas-section">
+
+            <h2 class="gas-section-title">
+                Gas Versions
+            </h2>
+
+
+            <div class="gas-grid">
+
+
+                <!-- =========================
+                     GAS
+                ========================= -->
+
+                <article class="gas-card gas-main-card">
+
+                    <div class="gas-image">
+
+                        <img
+                            src="./images/Gas.png"
+                            alt="Gas"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Gas
+                    </h3>
+
+                    <div class="gas-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                70M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                8/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                2,500
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Robux
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC GAS
+                ========================= -->
+
+                <article class="gas-card plastic-gas-card">
+
+                    <div class="gas-image">
+
+                        <img
+                            src="./images/Plastic-Gas.png"
+                            alt="Plastic Gas"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Gas
+                    </h3>
+
+                    <div class="gas-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                70M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-low">
+                                3/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↔
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GAS PROFILE
+        ========================= -->
+
+        <section class="gas-profile">
+
+
+            <div class="gas-profile-header">
+
+                <h2>
+                    💨 About Gas
+                </h2>
+
+                <p>
+                    A quick overview of Gas's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+
+            <div class="gas-profile-grid">
+
+
+                <!-- =========================
+                     1. FAMILY DATA
+                ========================= -->
+
+                <div class="gas-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Gas value: 70M
+                        </li>
+
+                        <li>
+                            Plastic Gas value: 70M
+                        </li>
+
+                        <li>
+                            Standard Gas demand: 8/10.
+                        </li>
+
+                        <li>
+                            Plastic Gas demand: 3/10.
+                        </li>
+
+                        <li>
+                            Gas is the main version of the
+                            Gas family.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     2. ABILITIES
+                ========================= -->
+
+                <div class="gas-info-box abilities-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Gas-based attacks and area pressure.
+                        </li>
+
+                        <li>
+                            Strong zone-control potential.
+                        </li>
+
+                        <li>
+                            Gas abilities can pressure opponents
+                            from multiple positions.
+                        </li>
+
+                        <li>
+                            Transformation greatly changes
+                            the combat style.
+                        </li>
+
+                        <li>
+                            Strong ability chaining potential.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     3. PROS
+                ========================= -->
+
+                <div class="gas-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Strong combat pressure.
+                        </li>
+
+                        <li>
+                            Excellent area control.
+                        </li>
+
+                        <li>
+                            Powerful transformed combat.
+                        </li>
+
+                        <li>
+                            Good ability chaining.
+                        </li>
+
+                        <li>
+                            Strong potential for experienced players.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     4. CONS
+                ========================= -->
+
+                <div class="gas-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Can require practice to use effectively.
+                        </li>
+
+                        <li>
+                            Some abilities require accurate timing.
+                        </li>
+
+                        <li>
+                            Positioning matters heavily during fights.
+                        </li>
+
+                        <li>
+                            Poor ability timing can reduce its pressure.
+                        </li>
+
+                        <li>
+                            Not every player will prefer its combat style.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     5. BEST FOR
+                ========================= -->
+
+                <div class="gas-info-box best-for-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            PvP players.
+                        </li>
+
+                        <li>
+                            Players who enjoy area control.
+                        </li>
+
+                        <li>
+                            Players who like transformation-based combat.
+                        </li>
+
+                        <li>
+                            Players who enjoy ability combos.
+                        </li>
+
+                        <li>
+                            Experienced players looking for a unique
+                            combat style.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     6. VERSIONS
+                ========================= -->
+
+                <div class="gas-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Gas
+                        </li>
+
+                        <li>
+                            Plastic Gas
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+                 ONLY COMBAT INFORMATION
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+                <div class="mode-grid">
+
+
+                    <!-- PVP -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🥊 PvP
+                        </h4>
+
+                        <p>
+                            Gas is suited for aggressive PvP
+                            through ability pressure, combos,
+                            and controlling the opponent's
+                            movement.
+                        </p>
+
+                    </div>
+
+
+                    <!-- TRANSFORMED -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            👹 Transformation
+                        </h4>
+
+                        <p>
+                            Gas Form focuses on transformed
+                            combat, giving the player a different
+                            fighting style with stronger pressure
+                            and ability usage.
+                        </p>
+
+                    </div>
+
+
+                    <!-- GAS ZONE -->
+
+                    <div class="mode-card">
+
+                        <h4>
+                            💨 Gas Zone
+                        </h4>
+
+                        <p>
+                            Gas excels at controlling areas,
+                            forcing opponents to move and creating
+                            opportunities to continue combos.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="gas-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Gas Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

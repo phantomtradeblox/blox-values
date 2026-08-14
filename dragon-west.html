@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Dragon Fruit</title>
+
+    <!-- External stylesheet controls the navigation -->
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Dragon-West.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .dragon-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .dragon-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .dragon-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .dragon-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           DRAGON VERSIONS
+        ========================= */
+
+        .dragon-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .dragon-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .dragon-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           BASE DRAGON CARD
+           ALL BLUE
+        ========================= */
+
+        .dragon-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .dragon-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           DRAGON WEST
+           BLUE
+        ========================= */
+
+        .dragon-west-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .dragon-west-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           DRAGON EAST
+           BLUE
+        ========================= */
+
+        .dragon-east-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .dragon-east-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           ECLIPSE
+           BLUE
+        ========================= */
+
+        .eclipse-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .eclipse-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           PLASTIC DRAGON
+           BLUE
+        ========================= */
+
+        .plastic-dragon-card {
+            border-color:
+                rgba(77, 141, 255, .65);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .plastic-dragon-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           DRAGON IMAGES
+        ========================= */
+
+        .dragon-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .dragon-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .dragon-card:hover
+        .dragon-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .dragon-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .dragon-info {
+            width:
+                100%;
+        }
+
+        .dragon-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .dragon-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .dragon-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-1,
+        .demand-2,
+        .demand-3,
+        .demand-4 {
+            color:
+                #ff4444 !important;
+        }
+
+        .demand-5,
+        .demand-6,
+        .demand-7 {
+            color:
+                #ffd43b !important;
+        }
+
+        .demand-8,
+        .demand-9,
+        .demand-10 {
+            color:
+                #39ff72 !important;
+        }
+
+
+        /* =========================
+           PROFILE
+           BLUE
+        ========================= */
+
+        .dragon-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .dragon-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .dragon-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .dragon-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .dragon-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+           ALL BLUE BACKGROUNDS
+        ========================= */
+
+        .dragon-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .dragon-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .dragon-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .dragon-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .dragon-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+           ICON GREEN
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .pros-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           CONS
+           ICON RED
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .cons-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           ABILITIES
+        ========================= */
+
+        .abilities-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           BEST FOR
+        ========================= */
+
+        .best-for-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .dragon-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .dragon-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+           BLUE
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .dragon-page {
+                padding-top:
+                    95px;
+            }
+
+            .dragon-header {
+                padding:
+                    25px 15px;
+            }
+
+            .dragon-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .dragon-header p {
+                font-size:
+                    15px;
+            }
+
+            .dragon-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .dragon-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .dragon-image {
+                height:
+                    110px;
+            }
+
+            .dragon-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .dragon-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .dragon-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .dragon-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .dragon-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .dragon-header p {
+                font-size:
+                    14px;
+            }
+
+            .dragon-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .dragon-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .dragon-image {
+                height:
+                    90px;
+            }
+
+            .dragon-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .dragon-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .dragon-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .dragon-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .dragon-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .dragon-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .dragon-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .dragon-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .dragon-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .dragon-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .mode-card {
+                padding:
+                    13px;
+            }
+
+            .dragon-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         CONTROLLED BY style.css
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         DRAGON PAGE
+    ========================= -->
+
+    <main class="dragon-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="dragon-header">
+
+            <h1>
+                🐉 Dragon Fruit
+            </h1>
+
+            <p>
+                Explore the Dragon family and compare
+                its known versions by value, demand,
+                Robux price, trend, and source.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             DRAGON VERSIONS
+        ========================= -->
+
+        <section class="dragon-section">
+
+            <h2 class="dragon-section-title">
+                Dragon Versions
+            </h2>
+
+
+            <div class="dragon-grid">
+
+
+                <!-- =========================
+                     DRAGON WEST
+                ========================= -->
+
+                <article class="dragon-card dragon-west-card">
+
+                    <div class="dragon-image">
+
+                        <img
+                            src="./images/Dragon-West.png"
+                            alt="Dragon West"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Dragon West
+                    </h3>
+
+                    <div class="dragon-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                5.1B
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-10">
+                                10/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                4,000
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Robux
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     DRAGON EAST
+                ========================= -->
+
+                <article class="dragon-card dragon-east-card">
+
+                    <div class="dragon-image">
+
+                        <img
+                            src="./images/Dragon-East.png"
+                            alt="Dragon East"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Dragon East
+                    </h3>
+
+                    <div class="dragon-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                4.7B
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-10">
+                                10/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                4,000
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Robux
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     ECLIPSE
+                     UNDER DRAGON EAST
+                ========================= -->
+
+                <article class="dragon-card eclipse-card">
+
+                    <div class="dragon-image">
+
+                        <img
+                            src="./images/Ember-West.png"
+                            alt="Eclipse Dragon"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Eclipse Dragon
+                    </h3>
+
+                    <div class="dragon-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                95M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-10">
+                                10/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                499
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Robux
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC DRAGON WEST
+                ========================= -->
+
+                <article class="dragon-card plastic-dragon-card">
+
+                    <div class="dragon-image">
+
+                        <img
+                            src="./images/Plastic-West.png"
+                            alt="Plastic Dragon West"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Dragon-West
+                    </h3>
+
+                    <div class="dragon-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                450M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-5">
+                                5/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↔
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC DRAGON EAST
+                ========================= -->
+
+                <article class="dragon-card plastic-dragon-card">
+
+                    <div class="dragon-image">
+
+                        <img
+                            src="./images/Plastic-East.png"
+                            alt="Plastic Dragon East"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Dragon-East
+                    </h3>
+
+                    <div class="dragon-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                450M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-5">
+                                5/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↔
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DRAGON PROFILE
+        ========================= -->
+
+        <section class="dragon-profile">
+
+
+            <div class="dragon-profile-header">
+
+                <h2>
+                    🐉 About Dragon
+                </h2>
+
+                <p>
+                    A quick overview of Dragon's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+
+            <div class="dragon-profile-grid">
+
+
+                <!-- =========================
+                     1. FAMILY DATA
+                ========================= -->
+
+                <div class="dragon-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Dragon West value: 5.1B
+                        </li>
+
+                        <li>
+                            Dragon East value: 4.7B
+                        </li>
+
+                        <li>
+                            Eclipse Dragon value: 95M
+                        </li>
+
+                        <li>
+                            Plastic Dragon-West value: 450M
+                        </li>
+
+                        <li>
+                            Plastic Dragon-East value: 450M
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     2. ABILITIES
+                ========================= -->
+
+                <div class="dragon-info-box abilities-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Powerful ranged Dragon attacks.
+                        </li>
+
+                        <li>
+                            Large area-of-effect attacks.
+                        </li>
+
+                        <li>
+                            Strong mobility and aerial pressure.
+                        </li>
+
+                        <li>
+                            Dragon transformation provides a major combat boost.
+                        </li>
+
+                        <li>
+                            Excellent pressure in PvP when abilities are chained correctly.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     3. PROS
+                ========================= -->
+
+                <div class="dragon-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Extremely high trading value.
+                        </li>
+
+                        <li>
+                            10/10 demand for the standard Dragon versions.
+                        </li>
+
+                        <li>
+                            Highly desirable Mythical fruit.
+                        </li>
+
+                        <li>
+                            Strong trading power in high-value deals.
+                        </li>
+
+                        <li>
+                            Strong PvP and grinding potential.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     4. CONS
+                ========================= -->
+
+                <div class="dragon-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Extremely expensive compared with most fruits.
+                        </li>
+
+                        <li>
+                            Standard Dragon has very low availability.
+                        </li>
+
+                        <li>
+                            Its high value can make fair trades difficult to arrange.
+                        </li>
+
+                        <li>
+                            Some abilities require good timing and aim.
+                        </li>
+
+                        <li>
+                            Not the easiest fruit for every player to master.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     5. BEST FOR
+                ========================= -->
+
+                <div class="dragon-info-box best-for-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            High-value trading.
+                        </li>
+
+                        <li>
+                            Experienced PvP players.
+                        </li>
+
+                        <li>
+                            Players who want a powerful Mythical fruit.
+                        </li>
+
+                        <li>
+                            End-game players with expensive inventories.
+                        </li>
+
+                        <li>
+                            Collectors looking for valuable fruits.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     6. VERSIONS
+                ========================= -->
+
+                <div class="dragon-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Dragon West
+                        </li>
+
+                        <li>
+                            Dragon East
+                        </li>
+
+                        <li>
+                            Eclipse Dragon
+                        </li>
+
+                        <li>
+                            Plastic Dragon-West
+                        </li>
+
+                        <li>
+                            Plastic Dragon-East
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+
+                <div class="mode-grid">
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            Base Form
+                        </h4>
+
+                        <p>
+                            Dragon's standard combat style,
+                            focused on its normal moveset,
+                            ranged pressure, and mobility.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            Transformation
+                        </h4>
+
+                        <p>
+                            Dragon transforms into its
+                            powerful dragon form, increasing
+                            its combat presence and area pressure.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            PvP Pressure
+                        </h4>
+
+                        <p>
+                            A combat-focused style built around
+                            chaining Dragon abilities, controlling
+                            space, and maintaining pressure.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="dragon-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Dragon Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

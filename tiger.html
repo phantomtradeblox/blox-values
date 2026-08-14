@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Tiger Fruit</title>
+
+    <!-- External stylesheet controls the navigation -->
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Tiger.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .tiger-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .tiger-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .tiger-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .tiger-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .tiger-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .tiger-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .tiger-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           BASE TIGER CARD
+        ========================= */
+
+        .tiger-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .tiger-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           TIGER
+        ========================= */
+
+        .tiger-main-card {
+            border-color:
+                rgba(77, 141, 255, .75);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .tiger-main-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        .tiger-main-card .tiger-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           WEREWOLF
+        ========================= */
+
+        .werewolf-card {
+            border-color:
+                rgba(77, 141, 255, .75);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .werewolf-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        .werewolf-card .tiger-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           PLASTIC TIGER
+        ========================= */
+
+        .plastic-tiger-card {
+            border-color:
+                rgba(77, 141, 255, .75);
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+        }
+
+        .plastic-tiger-card:hover {
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+        .plastic-tiger-card .tiger-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           TIGER IMAGES
+        ========================= */
+
+        .tiger-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .tiger-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .tiger-card:hover
+        .tiger-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .tiger-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .tiger-info {
+            width:
+                100%;
+        }
+
+        .tiger-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .tiger-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .tiger-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-mid {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           PROFILE
+           MAIN PAGE STAYS BLUE
+        ========================= */
+
+        .tiger-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .tiger-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .tiger-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .tiger-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .tiger-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .tiger-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .tiger-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .tiger-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .tiger-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .tiger-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(0,255,102,.18);
+        }
+
+        .pros-box h3 {
+            color:
+                #00ff66;
+        }
+
+
+        /* =========================
+           CONS
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(255,60,60,.18);
+        }
+
+        .cons-box h3 {
+            color:
+                #ff5555;
+        }
+
+
+        /* =========================
+           ABILITIES
+        ========================= */
+
+        .abilities-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           BEST FOR
+        ========================= */
+
+        .best-for-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .combat-modes {
+            margin-top:
+                25px;
+        }
+
+        .combat-modes h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+        }
+
+        .combat-mode {
+            padding:
+                15px;
+
+            margin-bottom:
+                10px;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+
+            color:
+                #b8d4ff;
+
+            line-height:
+                1.5;
+
+            font-size:
+                14px;
+        }
+
+        .combat-mode strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .tiger-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .tiger-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+           BLUE
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .tiger-page {
+                padding-top:
+                    95px;
+            }
+
+            .tiger-header {
+                padding:
+                    25px 15px;
+            }
+
+            .tiger-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .tiger-header p {
+                font-size:
+                    15px;
+            }
+
+            .tiger-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .tiger-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .tiger-image {
+                height:
+                    110px;
+            }
+
+            .tiger-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .tiger-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .tiger-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .tiger-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .tiger-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .tiger-header p {
+                font-size:
+                    14px;
+            }
+
+            .tiger-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .tiger-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .tiger-image {
+                height:
+                    90px;
+            }
+
+            .tiger-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .tiger-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .tiger-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .tiger-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .tiger-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .tiger-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .tiger-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .tiger-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .tiger-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .tiger-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .tiger-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         CONTROLLED BY style.css
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         TIGER PAGE
+    ========================= -->
+
+    <main class="tiger-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="tiger-header">
+
+            <h1>
+                🐯 Tiger Fruit
+            </h1>
+
+            <p>
+                Explore the Tiger family and compare
+                its known versions by value, demand,
+                Robux price, trend, and source.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             TIGER VERSIONS
+        ========================= -->
+
+        <section class="tiger-section">
+
+            <h2 class="tiger-section-title">
+                Tiger Versions
+            </h2>
+
+
+            <div class="tiger-grid">
+
+
+                <!-- =========================
+                     TIGER
+                ========================= -->
+
+                <article class="tiger-card tiger-main-card">
+
+                    <div class="tiger-image">
+
+                        <img
+                            src="./images/Tiger.png"
+                            alt="Tiger"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Tiger
+                    </h3>
+
+                    <div class="tiger-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                160M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                8/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Gatcha
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     WEREWOLF
+                ========================= -->
+
+                <article class="tiger-card werewolf-card">
+
+                    <div class="tiger-image">
+
+                        <img
+                            src="./images/Werewolf.png"
+                            alt="Werewolf"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Werewolf
+                    </h3>
+
+                    <div class="tiger-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                2.2B
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                9/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                2,199
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ←→
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Gatcha
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     PLASTIC TIGER
+                ========================= -->
+
+                <article class="tiger-card plastic-tiger-card">
+
+                    <div class="tiger-image">
+
+                        <img
+                            src="./images/Plastic-Tiger.png"
+                            alt="Plastic Tiger"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Plastic Tiger
+                    </h3>
+
+                    <div class="tiger-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                550M
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-mid">
+                                6/10
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                599
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ←→
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Event
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TIGER PROFILE
+        ========================= -->
+
+        <section class="tiger-profile">
+
+
+            <div class="tiger-profile-header">
+
+                <h2>
+                    🐯 About Tiger
+                </h2>
+
+                <p>
+                    A quick overview of Tiger's trading
+                    value, strengths, abilities, and uses.
+                </p>
+
+            </div>
+
+
+            <div class="tiger-profile-grid">
+
+
+                <!-- =========================
+                     FAMILY DATA
+                ========================= -->
+
+                <div class="tiger-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Tiger value: 160M.
+                        </li>
+
+                        <li>
+                            Tiger demand: 8/10.
+                        </li>
+
+                        <li>
+                            Werewolf value: 2.2B.
+                        </li>
+
+                        <li>
+                            Werewolf demand: 9/10.
+                        </li>
+
+                        <li>
+                            Plastic Tiger value: 550M.
+                        </li>
+
+                        <li>
+                            Plastic Tiger demand: 6/10.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     ABILITIES
+                ========================= -->
+
+                <div class="tiger-info-box abilities-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Powerful close-range combat pressure.
+                        </li>
+
+                        <li>
+                            Strong mobility during combat.
+                        </li>
+
+                        <li>
+                            High PvP potential when abilities are chained correctly.
+                        </li>
+
+                        <li>
+                            Can apply strong pressure against opponents.
+                        </li>
+
+                        <li>
+                            Works well for aggressive combat playstyles.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     PROS
+                ========================= -->
+
+                <div class="tiger-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            High trading value compared with most fruits.
+                        </li>
+
+                        <li>
+                            Strong demand at 8/10.
+                        </li>
+
+                        <li>
+                            Werewolf provides extremely high trading value.
+                        </li>
+
+                        <li>
+                            Good choice for aggressive PvP players.
+                        </li>
+
+                        <li>
+                            Multiple versions make the Tiger family collectible.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     CONS
+                ========================= -->
+
+                <div class="tiger-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Standard Tiger has much lower value than Werewolf.
+                        </li>
+
+                        <li>
+                            Plastic Tiger has lower demand than the standard version.
+                        </li>
+
+                        <li>
+                            High-value versions can be difficult to trade fairly.
+                        </li>
+
+                        <li>
+                            Some combat abilities require good timing and aim.
+                        </li>
+
+                        <li>
+                            The strongest versions are expensive to obtain.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     BEST FOR
+                ========================= -->
+
+                <div class="tiger-info-box best-for-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            High-value trading.
+                        </li>
+
+                        <li>
+                            Experienced PvP players.
+                        </li>
+
+                        <li>
+                            Players who prefer aggressive combat.
+                        </li>
+
+                        <li>
+                            End-game players with expensive inventories.
+                        </li>
+
+                        <li>
+                            Collectors looking for Tiger family variants.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     VERSIONS
+                ========================= -->
+
+                <div class="tiger-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Tiger
+                        </li>
+
+                        <li>
+                            Werewolf
+                        </li>
+
+                        <li>
+                            Plastic Tiger
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="combat-modes">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        PvP:
+                    </strong>
+
+                    Tiger is best suited to aggressive
+                    players who can consistently chain
+                    attacks and use its mobility effectively.
+
+                </div>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        Grinding:
+                    </strong>
+
+                    Tiger can be used for grinding,
+                    especially by players who prefer
+                    active combat rather than passive farming.
+
+                </div>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        Trading:
+                    </strong>
+
+                    Tiger is mainly valuable for trading,
+                    with Werewolf being the highest-value
+                    version in the listed Tiger family.
+
+                </div>
+
+
+                <div class="combat-mode">
+
+                    <strong>
+                        Collecting:
+                    </strong>
+
+                    The Tiger, Werewolf, and Plastic Tiger
+                    versions give collectors multiple forms
+                    of the same family to obtain.
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="tiger-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Tiger Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

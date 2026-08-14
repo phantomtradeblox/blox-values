@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Sound Fruit</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Sound.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .sound-page {
+            width: 100%;
+
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .sound-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .sound-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .sound-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           VARIANTS SECTION
+        ========================= */
+
+        .sound-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .sound-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .sound-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr);
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           SOUND CARD
+        ========================= */
+
+        .sound-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .sound-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           SOUND IMAGE
+        ========================= */
+
+        .sound-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .sound-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .sound-card:hover
+        .sound-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .sound-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .sound-info {
+            width:
+                100%;
+        }
+
+        .sound-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .sound-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .sound-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .sound-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .sound-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .sound-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .sound-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .sound-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .sound-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .sound-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .sound-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .sound-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .sound-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           COMBAT MODES
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .sound-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .sound-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .sound-page {
+                padding-top:
+                    95px;
+            }
+
+            .sound-header {
+                padding:
+                    25px 15px;
+            }
+
+            .sound-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .sound-header p {
+                font-size:
+                    15px;
+            }
+
+            .sound-grid {
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    12px;
+            }
+
+            .sound-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .sound-image {
+                height:
+                    110px;
+            }
+
+            .sound-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .sound-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .sound-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .sound-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .sound-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .sound-header p {
+                font-size:
+                    14px;
+            }
+
+            .sound-grid {
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    8px;
+            }
+
+            .sound-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .sound-image {
+                height:
+                    90px;
+            }
+
+            .sound-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .sound-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .sound-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .sound-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .sound-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .sound-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .sound-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .sound-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .sound-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .sound-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .sound-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         SOUND PAGE
+    ========================= -->
+
+    <main class="sound-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="sound-header">
+
+            <h1>
+                🔊 Sound Fruit
+            </h1>
+
+            <p>
+                Explore the Sound fruit and view its
+                trading information, abilities, strengths,
+                weaknesses, and combat uses.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             SOUND VERSION
+        ========================= -->
+
+        <section class="sound-section">
+
+            <h2 class="sound-section-title">
+                Sound Version
+            </h2>
+
+
+            <div class="sound-grid">
+
+
+                <!-- =========================
+                     SOUND
+                ========================= -->
+
+                <article class="sound-card sound-main-card">
+
+                    <div class="sound-image">
+
+                        <img
+                            src="./images/Sound.png"
+                            alt="Sound"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Sound
+                    </h3>
+
+                    <div class="sound-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOUND PROFILE
+        ========================= -->
+
+        <section class="sound-profile">
+
+
+            <div class="sound-profile-header">
+
+                <h2>
+                    🔊 About Sound
+                </h2>
+
+                <p>
+                    A quick overview of Sound's
+                    abilities, strengths, weaknesses,
+                    and combat uses.
+                </p>
+
+            </div>
+
+
+            <div class="sound-profile-grid">
+
+
+                <!-- FAMILY DATA -->
+
+                <div class="sound-info-box">
+
+                    <h3>
+                        📊 Family Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Sound is the main Sound variant.
+                        </li>
+
+                        <li>
+                            Sound uses the Sound.png image.
+                        </li>
+
+                        <li>
+                            No Plastic Sound version is included.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- ABILITIES -->
+
+                <div class="sound-info-box">
+
+                    <h3>
+                        ⚔️ Abilities
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Sound-based ranged attacks.
+                        </li>
+
+                        <li>
+                            Powerful area-of-effect attacks.
+                        </li>
+
+                        <li>
+                            Strong attack chaining potential.
+                        </li>
+
+                        <li>
+                            Good pressure against groups of enemies.
+                        </li>
+
+                        <li>
+                            Useful mobility during combat.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- PROS -->
+
+                <div class="sound-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Strong area damage.
+                        </li>
+
+                        <li>
+                            Good combat pressure.
+                        </li>
+
+                        <li>
+                            Effective ability combos.
+                        </li>
+
+                        <li>
+                            Useful for aggressive gameplay.
+                        </li>
+
+                        <li>
+                            Strong visual and attack effects.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CONS -->
+
+                <div class="sound-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Some abilities require accurate timing.
+                        </li>
+
+                        <li>
+                            Combos can require practice.
+                        </li>
+
+                        <li>
+                            Less effective when abilities are missed.
+                        </li>
+
+                        <li>
+                            Requires good positioning during fights.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- BEST FOR -->
+
+                <div class="sound-info-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Experienced PvP players.
+                        </li>
+
+                        <li>
+                            Players who enjoy combos.
+                        </li>
+
+                        <li>
+                            Players who like area damage.
+                        </li>
+
+                        <li>
+                            Aggressive combat players.
+                        </li>
+
+                        <li>
+                            Players who enjoy ranged attacks.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- VERSIONS -->
+
+                <div class="sound-info-box">
+
+                    <h3>
+                        ✨ Versions
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Sound
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 COMBAT MODES
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    ⚔️ Combat Modes
+                </h3>
+
+
+                <div class="mode-grid">
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🥊 PvP
+                        </h4>
+
+                        <p>
+                            Strong for aggressive PvP,
+                            ranged pressure, area damage,
+                            and chaining attacks together.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            💥 Combo
+                        </h4>
+
+                        <p>
+                            Best when chaining Sound's
+                            attacks together to maintain
+                            pressure and punish opponents.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🔊 Area Pressure
+                        </h4>
+
+                        <p>
+                            Effective for controlling space
+                            and applying pressure with
+                            wide-area sound attacks.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- LAST UPDATED -->
+
+            <div class="sound-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Sound Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>

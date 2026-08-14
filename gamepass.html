@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Blox Values - Gamepasses</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+
+        /* =========================
+           PAGE GLOBAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(5, 15, 35, .84),
+                    rgba(3, 9, 37, .95)
+                ),
+                url("./images/Fruit-Notifier.png");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            overflow-x: hidden;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .gamepass-page {
+            width: 100%;
+            min-height: 100vh;
+
+            padding-top: 110px;
+            padding-bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .gamepass-header {
+            width:
+                min(850px, calc(100% - 30px));
+
+            margin:
+                0 auto 45px;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(5, 15, 35, .82);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 35px
+                rgba(77, 141, 255, .18);
+
+            backdrop-filter:
+                blur(5px);
+        }
+
+        .gamepass-header h1 {
+            margin: 0;
+
+            font-size: 46px;
+
+            color: white;
+
+            text-shadow:
+                0 0 15px #4d8dff,
+                0 0 35px rgba(77, 141, 255, .4);
+        }
+
+        .gamepass-header p {
+            margin:
+                14px auto 0;
+
+            max-width:
+                680px;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                17px;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* =========================
+           GAMEPASS SECTION
+        ========================= */
+
+        .gamepass-section {
+            width:
+                min(1050px, calc(100% - 30px));
+
+            margin:
+                0 auto;
+        }
+
+        .gamepass-section-title {
+            text-align:
+                center;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                31px;
+
+            margin:
+                0 0 25px;
+
+            text-shadow:
+                0 0 10px
+                rgba(110, 168, 255, .65);
+        }
+
+        .gamepass-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                20px;
+
+            width:
+                100%;
+        }
+
+
+        /* =========================
+           GAMEPASS CARD
+        ========================= */
+
+        .gamepass-card {
+            width:
+                100%;
+
+            min-width:
+                0;
+
+            padding:
+                18px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(5, 10, 25, .94);
+
+            border:
+                2px solid
+                rgba(77, 141, 255, .65);
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 0 20px
+                rgba(77, 141, 255, .13);
+
+            transition:
+                transform .25s,
+                box-shadow .25s,
+                border-color .25s;
+        }
+
+        .gamepass-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #6ea8ff;
+
+            box-shadow:
+                0 0 30px
+                rgba(110, 168, 255, .35);
+        }
+
+
+        /* =========================
+           GAMEPASS IMAGES
+        ========================= */
+
+        .gamepass-image {
+            width:
+                100%;
+
+            height:
+                155px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+        }
+
+        .gamepass-image img {
+            width:
+                135px;
+
+            height:
+                135px;
+
+            max-width:
+                100%;
+
+            max-height:
+                100%;
+
+            object-fit:
+                contain;
+
+            transition:
+                transform .25s;
+        }
+
+        .gamepass-card:hover
+        .gamepass-image img {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        .gamepass-card h3 {
+            margin:
+                10px 0 18px;
+
+            color:
+                white;
+
+            font-size:
+                21px;
+        }
+
+
+        /* =========================
+           VALUE INFORMATION
+        ========================= */
+
+        .gamepass-info {
+            width:
+                100%;
+        }
+
+        .gamepass-info p {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            width:
+                100%;
+
+            margin:
+                0;
+
+            padding:
+                9px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color:
+                #b8d4ff;
+        }
+
+        .gamepass-info p:last-child {
+            border-bottom:
+                none;
+        }
+
+        .gamepass-info strong {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           DEMAND COLORS
+        ========================= */
+
+        .demand-low {
+            color:
+                #ff5555 !important;
+        }
+
+        .demand-medium {
+            color:
+                #ffd84d !important;
+        }
+
+        .demand-high {
+            color:
+                #00ff66 !important;
+        }
+
+
+        /* =========================
+           GAMEPASS PROFILE
+        ========================= */
+
+        .gamepass-profile {
+            width:
+                min(900px, calc(100% - 30px));
+
+            margin:
+                55px auto 40px;
+
+            padding:
+                30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5, 15, 40, .97),
+                    rgba(6, 14, 30, .95)
+                );
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .45);
+
+            border-radius:
+                25px;
+
+            box-shadow:
+                0 0 30px
+                rgba(77, 141, 255, .12);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        /* =========================
+           PROFILE HEADER
+        ========================= */
+
+        .gamepass-profile-header {
+            text-align:
+                center;
+
+            margin-bottom:
+                30px;
+        }
+
+        .gamepass-profile-header h2 {
+            margin:
+                0;
+
+            font-size:
+                32px;
+
+            color:
+                white;
+
+            text-shadow:
+                0 0 12px #4d8dff;
+        }
+
+        .gamepass-profile-header p {
+            margin:
+                8px 0 0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                15px;
+        }
+
+
+        /* =========================
+           PROFILE GRID
+        ========================= */
+
+        .gamepass-profile-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                15px;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .gamepass-info-box {
+            padding:
+                18px;
+
+            background:
+                rgba(77, 141, 255, .045);
+
+            border:
+                1px solid
+                rgba(77, 141, 255, .18);
+
+            border-radius:
+                16px;
+
+            min-width:
+                0;
+
+            transition:
+                .2s;
+        }
+
+        .gamepass-info-box:hover {
+            border-color:
+                rgba(110, 168, 255, .55);
+
+            background:
+                rgba(77, 141, 255, .07);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .gamepass-info-box h3 {
+            margin:
+                0 0 13px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                19px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .4);
+        }
+
+        .gamepass-info-box ul {
+            margin:
+                0;
+
+            padding-left:
+                20px;
+        }
+
+        .gamepass-info-box li {
+            color:
+                #d6e5ff;
+
+            margin:
+                7px 0;
+
+            line-height:
+                1.4;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =========================
+           PROS
+        ========================= */
+
+        .pros-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .pros-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           CONS
+        ========================= */
+
+        .cons-box {
+            border-color:
+                rgba(77, 141, 255, .18);
+        }
+
+        .cons-box h3 {
+            color:
+                #6ea8ff;
+        }
+
+
+        /* =========================
+           BEST FOR
+        ========================= */
+
+        .best-for-box {
+            border-color:
+                rgba(77, 141, 255, .22);
+        }
+
+
+        /* =========================
+           GAMEPASS TYPES
+        ========================= */
+
+        .mode-section {
+            margin-top:
+                25px;
+        }
+
+        .mode-section h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #6ea8ff;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 7px
+                rgba(110, 168, 255, .35);
+        }
+
+        .mode-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap:
+                12px;
+        }
+
+        .mode-card {
+            padding:
+                15px;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.25);
+
+            border:
+                1px solid
+                rgba(110,168,255,.18);
+
+            border-radius:
+                14px;
+        }
+
+        .mode-card h4 {
+            margin:
+                0 0 8px;
+
+            color:
+                white;
+
+            font-size:
+                17px;
+        }
+
+        .mode-card p {
+            margin:
+                0;
+
+            color:
+                #b8d4ff;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.45;
+        }
+
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .gamepass-updated {
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            margin-top:
+                25px;
+
+            padding:
+                12px 5px 0;
+
+            color:
+                #718a99;
+
+            font-size:
+                13px;
+        }
+
+        .gamepass-updated strong {
+            color:
+                #6ea8ff;
+
+            font-weight:
+                normal;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer-1 {
+            width:
+                100%;
+
+            text-align:
+                center;
+
+            background:
+                rgba(0,0,0,.95);
+
+            padding:
+                25px 15px;
+
+            margin-top:
+                auto;
+        }
+
+        .footer-1 h3 {
+            margin:
+                0 0 15px;
+
+            color:
+                #4d8dff;
+
+            font-family:
+                monospace;
+
+            font-size:
+                20px;
+
+            text-shadow:
+                0 0 10px
+                rgba(77, 141, 255, .45);
+        }
+
+        .footer-1 p {
+            margin:
+                0;
+
+            color:
+                #718a99;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .gamepass-page {
+                padding-top:
+                    95px;
+            }
+
+            .gamepass-header {
+                padding:
+                    25px 15px;
+            }
+
+            .gamepass-header h1 {
+                font-size:
+                    32px;
+            }
+
+            .gamepass-header p {
+                font-size:
+                    15px;
+            }
+
+            .gamepass-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    12px;
+            }
+
+            .gamepass-card {
+                padding:
+                    12px;
+
+                border-radius:
+                    15px;
+            }
+
+            .gamepass-image {
+                height:
+                    110px;
+            }
+
+            .gamepass-image img {
+                width:
+                    90px;
+
+                height:
+                    90px;
+            }
+
+            .gamepass-card h3 {
+                font-size:
+                    16px;
+            }
+
+            .gamepass-info p {
+                font-size:
+                    13px;
+
+                padding:
+                    7px 0;
+            }
+
+            .gamepass-profile {
+                padding:
+                    22px;
+
+                margin-top:
+                    35px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 667px) {
+
+            .gamepass-header h1 {
+                font-size:
+                    28px;
+            }
+
+            .gamepass-header p {
+                font-size:
+                    14px;
+            }
+
+            .gamepass-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    8px;
+            }
+
+            .gamepass-card {
+                padding:
+                    9px;
+
+                border-radius:
+                    13px;
+            }
+
+            .gamepass-image {
+                height:
+                    90px;
+            }
+
+            .gamepass-image img {
+                width:
+                    70px;
+
+                height:
+                    70px;
+            }
+
+            .gamepass-card h3 {
+                font-size:
+                    14px;
+
+                margin:
+                    7px 0 12px;
+            }
+
+            .gamepass-info p {
+                font-size:
+                    12px;
+
+                padding:
+                    6px 0;
+            }
+
+            .gamepass-profile {
+                width:
+                    calc(100% - 16px);
+
+                padding:
+                    18px;
+
+                border-radius:
+                    18px;
+            }
+
+            .gamepass-profile-header h2 {
+                font-size:
+                    26px;
+            }
+
+            .gamepass-profile-header p {
+                font-size:
+                    13px;
+            }
+
+            .gamepass-profile-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap:
+                    9px;
+            }
+
+            .gamepass-info-box {
+                padding:
+                    12px;
+
+                border-radius:
+                    12px;
+            }
+
+            .gamepass-info-box h3 {
+                font-size:
+                    15px;
+
+                margin-bottom:
+                    9px;
+            }
+
+            .gamepass-info-box li {
+                font-size:
+                    11px;
+
+                margin:
+                    5px 0;
+            }
+
+            .mode-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .gamepass-updated {
+                font-size:
+                    11px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="ognav">
+
+        <a href="./index.html">
+
+            <img
+                class="index-logo"
+                src="./images/Blox Values Logo.png"
+                alt="Blox Values"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="./index.html">
+                Home
+            </a>
+
+            <a href="./values.html">
+                Values
+            </a>
+
+            <a href="./calculator.html">
+                Calculator
+            </a>
+
+            <a href="./info.html">
+                Info
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         GAMEPASS PAGE
+    ========================= -->
+
+    <main class="gamepass-page">
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <header class="gamepass-header">
+
+            <h1>
+                🎟️ Gamepasses
+            </h1>
+
+            <p>
+                Explore the available gamepasses and compare
+                their values, Robux prices, demand, trends,
+                and sources.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             GAMEPASS VARIANTS
+        ========================= -->
+
+        <section class="gamepass-section">
+
+            <h2 class="gamepass-section-title">
+                Gamepass Collection
+            </h2>
+
+
+            <div class="gamepass-grid">
+
+
+                <!-- =========================
+                     FRUIT NOTIFIER
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Fruit-Notifier.png"
+                            alt="Fruit Notifier"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Fruit Notifier
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                2,700
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     DARK BLADE
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Dark-Blade.png"
+                            alt="Dark Blade"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Dark Blade
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                1,200
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     FRUIT STORAGE
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Fruit_Storage.png"
+                            alt="Fruit Storage"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Fruit Storage
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                400
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     MASTERY
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Mastery.png"
+                            alt="Mastery"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Mastery
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     BOSS DROPS
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Boss-Drops.png"
+                            alt="Boss Drops"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Boss Drops
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     MONEY
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Money.png"
+                            alt="Money"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Money
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================
+                     FAST BOATS
+                ========================= -->
+
+                <article class="gamepass-card">
+
+                    <div class="gamepass-image">
+
+                        <img
+                            src="./images/Fast-Boats.png"
+                            alt="Fast Boats"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Fast Boats
+                    </h3>
+
+                    <div class="gamepass-info">
+
+                        <p>
+                            <span>
+                                Value
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Demand
+                            </span>
+
+                            <strong class="demand-high">
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Robux
+                            </span>
+
+                            <strong>
+                                —
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Trend
+                            </span>
+
+                            <strong>
+                                ↗
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span>
+                                Source
+                            </span>
+
+                            <strong>
+                                Shop
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GAMEPASS PROFILE
+        ========================= -->
+
+        <section class="gamepass-profile">
+
+
+            <div class="gamepass-profile-header">
+
+                <h2>
+                    🎟️ About Gamepasses
+                </h2>
+
+                <p>
+                    A quick overview of the gamepasses,
+                    their uses, benefits, and value.
+                </p>
+
+            </div>
+
+
+            <div class="gamepass-profile-grid">
+
+
+                <!-- =========================
+                     GAMEPASS DATA
+                ========================= -->
+
+                <div class="gamepass-info-box">
+
+                    <h3>
+                        📊 Gamepass Data
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Fruit Notifier
+                        </li>
+
+                        <li>
+                            Dark Blade
+                        </li>
+
+                        <li>
+                            Fruit Storage
+                        </li>
+
+                        <li>
+                            Mastery
+                        </li>
+
+                        <li>
+                            Boss Drops
+                        </li>
+
+                        <li>
+                            Money
+                        </li>
+
+                        <li>
+                            Fast Boats
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     BENEFITS
+                ========================= -->
+
+                <div class="gamepass-info-box">
+
+                    <h3>
+                        ⚡ Benefits
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Improves specific parts of gameplay.
+                        </li>
+
+                        <li>
+                            Adds useful permanent advantages.
+                        </li>
+
+                        <li>
+                            Can improve farming efficiency.
+                        </li>
+
+                        <li>
+                            Can improve mobility and convenience.
+                        </li>
+
+                        <li>
+                            Some gamepasses provide unique items
+                            or permanent abilities.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     PROS
+                ========================= -->
+
+                <div class="gamepass-info-box pros-box">
+
+                    <h3>
+                        🟢 Pros
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Permanent gameplay benefits.
+                        </li>
+
+                        <li>
+                            Can save time while farming.
+                        </li>
+
+                        <li>
+                            Useful for long-term players.
+                        </li>
+
+                        <li>
+                            Some provide exclusive abilities
+                            or items.
+                        </li>
+
+                        <li>
+                            Can make progression more convenient.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     CONS
+                ========================= -->
+
+                <div class="gamepass-info-box cons-box">
+
+                    <h3>
+                        🔴 Cons
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Gamepasses require Robux.
+                        </li>
+
+                        <li>
+                            Some benefits are mainly based
+                            around convenience.
+                        </li>
+
+                        <li>
+                            Value depends on how often the
+                            player uses the benefit.
+                        </li>
+
+                        <li>
+                            Not every gamepass is useful
+                            for every player.
+                        </li>
+
+                        <li>
+                            Some purchases may be expensive.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     BEST FOR
+                ========================= -->
+
+                <div class="gamepass-info-box best-for-box">
+
+                    <h3>
+                        🎯 Best For
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Long-term players.
+                        </li>
+
+                        <li>
+                            Dedicated farmers.
+                        </li>
+
+                        <li>
+                            Collectors.
+                        </li>
+
+                        <li>
+                            Players who want permanent upgrades.
+                        </li>
+
+                        <li>
+                            Players who want extra convenience.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =========================
+                     TYPES
+                ========================= -->
+
+                <div class="gamepass-info-box">
+
+                    <h3>
+                        🎟️ Types
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            Fruit Notifier
+                        </li>
+
+                        <li>
+                            Dark Blade
+                        </li>
+
+                        <li>
+                            Fruit Storage
+                        </li>
+
+                        <li>
+                            Mastery
+                        </li>
+
+                        <li>
+                            Boss Drops
+                        </li>
+
+                        <li>
+                            Money
+                        </li>
+
+                        <li>
+                            Fast Boats
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 GAMEPASS CATEGORIES
+            ========================= -->
+
+            <div class="mode-section">
+
+                <h3>
+                    🎟️ Gamepass Categories
+                </h3>
+
+                <div class="mode-grid">
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🍎 Fruit
+                        </h4>
+
+                        <p>
+                            Fruit-focused gamepasses provide
+                            useful tools for finding and storing
+                            fruits.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            ⚔️ Combat
+                        </h4>
+
+                        <p>
+                            Combat-focused gamepasses can provide
+                            permanent advantages or exclusive
+                            combat-related items.
+                        </p>
+
+                    </div>
+
+
+                    <div class="mode-card">
+
+                        <h4>
+                            🏃 Convenience
+                        </h4>
+
+                        <p>
+                            Convenience gamepasses improve
+                            farming, movement, progression,
+                            and everyday gameplay.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LAST UPDATED
+            ========================= -->
+
+            <div class="gamepass-updated">
+
+                <span>
+                    Last Updated
+                </span>
+
+                <strong>
+                    15 August 2026
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <footer class="footer-1">
+
+            <h3>
+                Blox Values
+            </h3>
+
+            <p>
+                Gamepass Collection
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>
