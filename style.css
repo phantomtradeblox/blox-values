@@ -374,7 +374,7 @@ footer,
     );    
     border-width: 2px;
     color: black;
-    font-weight: 600;
+    font-weight: bolder;
     text-align: center;
     justify-content: center;
 }
