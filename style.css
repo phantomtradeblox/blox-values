@@ -408,7 +408,41 @@ text-align: center;
     width: 50%;
 }
 
+
 .fruits-profile{
+
+    background-color: #002544;
+
+    background-image:
+        radial-gradient(#ff02d5 1.5px, transparent 1.5px),
+        radial-gradient(#3401ff 1.5px, transparent 1.5px),
+        radial-gradient(#02ccff 1.5px, transparent 1.5px),
+        radial-gradient(#02ff24 1.5px, transparent 1.5px);
+
+    background-size:
+        37px 41px,
+        53px 47px,
+        71px 80px,
+        89px 80px;
+
+    background-position:
+        0 0,
+        17px 23px,
+        31px 11px,
+        43px 37px;
+
+    padding: 20px;
+    border-radius: 20px;
+    margin: 8px;
+
+    box-shadow:
+        0 15px 40px rgba(80, 80, 80, 0.45);
+
+        background-attachment: fixed;
+}
+
+
+/* .fruits-profile{
     background: linear-gradient(
         150deg,
         #ff0000 0%,
@@ -420,11 +454,13 @@ text-align: center;
     padding: 20px;
     border-radius: 20px;
     margin: 5px;
-}
+} */
 
 .last-updated{
     color: gray;
     margin-left: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* font-style: oblique; */
 }
 
 
@@ -1337,6 +1373,10 @@ text-align: center;
     .values-nav a{
         font-weight: lighter;
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .fruit-values a{
+        font-weight: bolder;
     }
 
 }
