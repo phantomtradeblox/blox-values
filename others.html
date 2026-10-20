@@ -1,1698 +1,1130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Blox Values - Events</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
 
     <style>
-
-        /* =========================
+      /* =========================
            PAGE GLOBAL
         ========================= */
 
-        * {
-            box-sizing: border-box;
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
 
-        body {
-            color: white;
+      body {
+        color: white;
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
 
-            background:
-                linear-gradient(
-                    rgba(5, 15, 35, .84),
-                    rgba(3, 9, 37, .95)
-                ),
-                url("./images/Doghouse-Frame-Break.png");
+        background:
+          linear-gradient(rgba(5, 15, 35, 0.84), rgba(3, 9, 37, 0.95)),
+          url("./images/Doghouse-Frame-Break.png");
 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
 
-            overflow-x: hidden;
+        overflow-x: hidden;
 
-            min-height: 100vh;
+        min-height: 100vh;
 
-            display: flex;
-            flex-direction: column;
-        }
+        display: flex;
+        flex-direction: column;
+      }
 
-
-        /* =========================
+      /* =========================
            PAGE
         ========================= */
 
-        .events-page {
-            width: 100%;
-            min-height: 100vh;
+      .events-page {
+        width: 100%;
+        min-height: 100vh;
 
-            padding-top: 110px;
-            padding-bottom: 0;
+        padding-top: 110px;
+        padding-bottom: 0;
 
-            display: flex;
-            flex-direction: column;
+        display: flex;
+        flex-direction: column;
 
-            flex: 1;
-        }
+        flex: 1;
+      }
 
-
-        /* =========================
+      /* =========================
            HERO
         ========================= */
 
-        .events-header {
-            width:
-                min(850px, calc(100% - 30px));
+      .events-header {
+        width: min(850px, calc(100% - 30px));
 
-            margin:
-                0 auto 45px;
+        margin: 0 auto 45px;
 
-            padding:
-                35px 25px;
+        padding: 35px 25px;
 
-            text-align: center;
+        text-align: center;
 
-            background:
-                rgba(5, 15, 35, .82);
+        background: rgba(5, 15, 35, 0.82);
 
-            border:
-                1px solid
-                rgba(77, 141, 255, .45);
+        border: 1px solid rgba(77, 141, 255, 0.45);
 
-            border-radius:
-                25px;
+        border-radius: 25px;
 
-            box-shadow:
-                0 0 35px
-                rgba(77, 141, 255, .18);
+        box-shadow: 0 0 35px rgba(77, 141, 255, 0.18);
 
-            backdrop-filter:
-                blur(5px);
-        }
+        backdrop-filter: blur(5px);
+      }
 
-        .events-header h1 {
-            margin: 0;
+      .events-header h1 {
+        margin: 0;
 
-            font-size: 46px;
+        font-size: 46px;
 
-            color: white;
+        color: white;
 
-            text-shadow:
-                0 0 15px #4d8dff,
-                0 0 35px rgba(77, 141, 255, .4);
-        }
+        text-shadow:
+          0 0 15px #4d8dff,
+          0 0 35px rgba(77, 141, 255, 0.4);
+      }
 
-        .events-header p {
-            margin:
-                14px auto 0;
+      .events-header p {
+        margin: 14px auto 0;
 
-            max-width:
-                680px;
+        max-width: 680px;
 
-            color:
-                #b8d4ff;
+        color: #b8d4ff;
 
-            font-size:
-                17px;
+        font-size: 17px;
 
-            line-height:
-                1.6;
-        }
+        line-height: 1.6;
+      }
 
-
-        /* =========================
+      /* =========================
            EVENTS SECTION
         ========================= */
 
-        .events-section {
-            width:
-                min(1050px, calc(100% - 30px));
+      .events-section {
+        width: min(1050px, calc(100% - 30px));
 
-            margin:
-                0 auto;
-        }
+        margin: 0 auto;
+      }
 
-        .events-section-title {
-            text-align:
-                center;
+      .events-section-title {
+        text-align: center;
 
-            color:
-                #6ea8ff;
+        color: #6ea8ff;
 
-            font-size:
-                31px;
+        font-size: 31px;
 
-            margin:
-                0 0 25px;
+        margin: 0 0 25px;
 
-            text-shadow:
-                0 0 10px
-                rgba(110, 168, 255, .65);
-        }
+        text-shadow: 0 0 10px rgba(110, 168, 255, 0.65);
+      }
 
-        .events-grid {
-            display:
-                grid;
+      .events-grid {
+        display: grid;
 
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
-            gap:
-                20px;
+        gap: 20px;
 
-            width:
-                100%;
-        }
+        width: 100%;
+      }
 
-
-        /* =========================
+      /* =========================
            EVENT CARD
         ========================= */
 
-        .event-card {
-            width:
-                100%;
+      .event-card {
+        width: 100%;
 
-            min-width:
-                0;
+        min-width: 0;
 
-            padding:
-                18px;
+        padding: 18px;
 
-            text-align:
-                center;
+        text-align: center;
 
-            background:
-                rgba(5, 10, 25, .94);
+        background: rgba(5, 10, 25, 0.94);
 
-            border:
-                2px solid
-                rgba(77, 141, 255, .65);
+        border: 2px solid rgba(77, 141, 255, 0.65);
 
-            border-radius:
-                20px;
+        border-radius: 20px;
 
-            box-shadow:
-                0 0 20px
-                rgba(77, 141, 255, .13);
+        box-shadow: 0 0 20px rgba(77, 141, 255, 0.13);
 
-            transition:
-                transform .25s,
-                box-shadow .25s,
-                border-color .25s;
-        }
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
 
-        .event-card:hover {
-            transform:
-                translateY(-5px);
+      .event-card:hover {
+        transform: translateY(-5px);
 
-            border-color:
-                #6ea8ff;
+        border-color: #6ea8ff;
 
-            box-shadow:
-                0 0 30px
-                rgba(110, 168, 255, .35);
-        }
+        box-shadow: 0 0 30px rgba(110, 168, 255, 0.35);
+      }
 
-
-        /* =========================
+      /* =========================
            EVENT IMAGES
         ========================= */
 
-        .event-image {
-            width:
-                100%;
+      .event-image {
+        width: 100%;
 
-            height:
-                155px;
+        height: 155px;
 
-            display:
-                flex;
+        display: flex;
 
-            align-items:
-                center;
+        align-items: center;
 
-            justify-content:
-                center;
+        justify-content: center;
 
-            overflow:
-                hidden;
-        }
+        overflow: hidden;
+      }
 
-        .event-image img {
-            width:
-                135px;
+      .event-image img {
+        width: 135px;
 
-            height:
-                135px;
+        height: 135px;
 
-            max-width:
-                100%;
+        max-width: 100%;
 
-            max-height:
-                100%;
+        max-height: 100%;
 
-            object-fit:
-                contain;
+        object-fit: contain;
 
-            transition:
-                transform .25s;
-        }
+        transition: transform 0.25s;
+      }
 
-        .event-card:hover
-        .event-image img {
-            transform:
-                scale(1.08);
-        }
+      .event-card:hover .event-image img {
+        transform: scale(1.08);
+      }
 
-
-        /* =========================
+      /* =========================
            NAME
         ========================= */
 
-        .event-card h3 {
-            margin:
-                10px 0 18px;
+      .event-card h3 {
+        margin: 10px 0 18px;
 
-            color:
-                white;
+        color: white;
 
-            font-size:
-                21px;
-        }
+        font-size: 21px;
+      }
 
-
-        /* =========================
+      /* =========================
            VALUE INFORMATION
         ========================= */
 
-        .event-info {
-            width:
-                100%;
-        }
+      .event-info {
+        width: 100%;
+      }
 
-        .event-info p {
-            display:
-                flex;
+      .event-info p {
+        display: flex;
 
-            justify-content:
-                space-between;
+        justify-content: space-between;
 
-            align-items:
-                center;
+        align-items: center;
 
-            width:
-                100%;
+        width: 100%;
 
-            margin:
-                0;
+        margin: 0;
 
-            padding:
-                9px 0;
+        padding: 9px 0;
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-            color:
-                #b8d4ff;
-        }
+        color: #b8d4ff;
+      }
 
-        .event-info p:last-child {
-            border-bottom:
-                none;
-        }
+      .event-info p:last-child {
+        border-bottom: none;
+      }
 
-        .event-info strong {
-            color:
-                #6ea8ff;
-        }
+      .event-info strong {
+        color: #6ea8ff;
+      }
 
-
-        /* =========================
+      /* =========================
            DEMAND COLORS
         ========================= */
 
-        .demand-low {
-            color:
-                #ff5555 !important;
-        }
+      .demand-low {
+        color: #ff5555 !important;
+      }
 
-        .demand-medium {
-            color:
-                #ffd84d !important;
-        }
+      .demand-medium {
+        color: #ffd84d !important;
+      }
 
-        .demand-high {
-            color:
-                #00ff66 !important;
-        }
+      .demand-high {
+        color: #00ff66 !important;
+      }
 
-
-        /* =========================
+      /* =========================
            EVENT PROFILE
         ========================= */
 
-        .events-profile {
-            width:
-                min(900px, calc(100% - 30px));
+      .events-profile {
+        width: min(900px, calc(100% - 30px));
 
-            margin:
-                55px auto 40px;
+        margin: 55px auto 40px;
 
-            padding:
-                30px;
+        padding: 30px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(5, 15, 40, .97),
-                    rgba(6, 14, 30, .95)
-                );
+        background: linear-gradient(
+          145deg,
+          rgba(5, 15, 40, 0.97),
+          rgba(6, 14, 30, 0.95)
+        );
 
-            border:
-                1px solid
-                rgba(77, 141, 255, .45);
+        border: 1px solid rgba(77, 141, 255, 0.45);
 
-            border-radius:
-                25px;
+        border-radius: 25px;
 
-            box-shadow:
-                0 0 30px
-                rgba(77, 141, 255, .12);
+        box-shadow: 0 0 30px rgba(77, 141, 255, 0.12);
 
-            position:
-                relative;
+        position: relative;
 
-            overflow:
-                hidden;
-        }
+        overflow: hidden;
+      }
 
-
-        /* =========================
+      /* =========================
            PROFILE HEADER
         ========================= */
 
-        .events-profile-header {
-            text-align:
-                center;
+      .events-profile-header {
+        text-align: center;
 
-            margin-bottom:
-                30px;
-        }
+        margin-bottom: 30px;
+      }
 
-        .events-profile-header h2 {
-            margin:
-                0;
+      .events-profile-header h2 {
+        margin: 0;
 
-            font-size:
-                32px;
+        font-size: 32px;
 
-            color:
-                white;
+        color: white;
 
-            text-shadow:
-                0 0 12px #4d8dff;
-        }
+        text-shadow: 0 0 12px #4d8dff;
+      }
 
-        .events-profile-header p {
-            margin:
-                8px 0 0;
+      .events-profile-header p {
+        margin: 8px 0 0;
 
-            color:
-                #b8d4ff;
+        color: #b8d4ff;
 
-            font-size:
-                15px;
-        }
+        font-size: 15px;
+      }
 
-
-        /* =========================
+      /* =========================
            PROFILE GRID
         ========================= */
 
-        .events-profile-grid {
-            display:
-                grid;
+      .events-profile-grid {
+        display: grid;
 
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
-            gap:
-                15px;
-        }
+        gap: 15px;
+      }
 
-
-        /* =========================
+      /* =========================
            INFO BOX
         ========================= */
 
-        .events-info-box {
-            padding:
-                18px;
+      .events-info-box {
+        padding: 18px;
 
-            background:
-                rgba(77, 141, 255, .045);
+        background: rgba(77, 141, 255, 0.045);
 
-            border:
-                1px solid
-                rgba(77, 141, 255, .18);
+        border: 1px solid rgba(77, 141, 255, 0.18);
 
-            border-radius:
-                16px;
+        border-radius: 16px;
 
-            min-width:
-                0;
+        min-width: 0;
 
-            transition:
-                .2s;
-        }
+        transition: 0.2s;
+      }
 
-        .events-info-box:hover {
-            border-color:
-                rgba(110, 168, 255, .55);
+      .events-info-box:hover {
+        border-color: rgba(110, 168, 255, 0.55);
 
-            background:
-                rgba(77, 141, 255, .07);
+        background: rgba(77, 141, 255, 0.07);
 
-            transform:
-                translateY(-2px);
-        }
+        transform: translateY(-2px);
+      }
 
-        .events-info-box h3 {
-            margin:
-                0 0 13px;
+      .events-info-box h3 {
+        margin: 0 0 13px;
 
-            color:
-                #6ea8ff;
+        color: #6ea8ff;
 
-            font-size:
-                19px;
+        font-size: 19px;
 
-            text-shadow:
-                0 0 7px
-                rgba(110, 168, 255, .4);
-        }
+        text-shadow: 0 0 7px rgba(110, 168, 255, 0.4);
+      }
 
-        .events-info-box ul {
-            margin:
-                0;
+      .events-info-box ul {
+        margin: 0;
 
-            padding-left:
-                20px;
-        }
+        padding-left: 20px;
+      }
 
-        .events-info-box li {
-            color:
-                #d6e5ff;
+      .events-info-box li {
+        color: #d6e5ff;
 
-            margin:
-                7px 0;
+        margin: 7px 0;
 
-            line-height:
-                1.4;
+        line-height: 1.4;
 
-            font-size:
-                14px;
-        }
+        font-size: 14px;
+      }
 
-
-        /* =========================
+      /* =========================
            PROS
         ========================= */
 
-        .pros-box {
-            border-color:
-                rgba(77, 141, 255, .18);
-        }
+      .pros-box {
+        border-color: rgba(77, 141, 255, 0.18);
+      }
 
-        .pros-box h3 {
-            color:
-                #6ea8ff;
-        }
+      .pros-box h3 {
+        color: #6ea8ff;
+      }
 
-
-        /* =========================
+      /* =========================
            CONS
         ========================= */
 
-        .cons-box {
-            border-color:
-                rgba(77, 141, 255, .18);
-        }
+      .cons-box {
+        border-color: rgba(77, 141, 255, 0.18);
+      }
 
-        .cons-box h3 {
-            color:
-                #6ea8ff;
-        }
+      .cons-box h3 {
+        color: #6ea8ff;
+      }
 
-
-        /* =========================
+      /* =========================
            BEST FOR
         ========================= */
 
-        .best-for-box {
-            border-color:
-                rgba(77, 141, 255, .22);
-        }
+      .best-for-box {
+        border-color: rgba(77, 141, 255, 0.22);
+      }
 
-
-        /* =========================
+      /* =========================
            EVENT TYPES
         ========================= */
 
-        .mode-section {
-            margin-top:
-                25px;
-        }
+      .mode-section {
+        margin-top: 25px;
+      }
 
-        .mode-section h3 {
-            margin:
-                0 0 15px;
+      .mode-section h3 {
+        margin: 0 0 15px;
 
-            color:
-                #6ea8ff;
+        color: #6ea8ff;
 
-            font-size:
-                20px;
+        font-size: 20px;
 
-            text-shadow:
-                0 0 7px
-                rgba(110, 168, 255, .35);
-        }
+        text-shadow: 0 0 7px rgba(110, 168, 255, 0.35);
+      }
 
-        .mode-grid {
-            display:
-                grid;
+      .mode-grid {
+        display: grid;
 
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
 
-            gap:
-                12px;
-        }
+        gap: 12px;
+      }
 
-        .mode-card {
-            padding:
-                15px;
+      .mode-card {
+        padding: 15px;
 
-            text-align:
-                center;
+        text-align: center;
 
-            background:
-                rgba(0,0,0,.25);
+        background: rgba(0, 0, 0, 0.25);
 
-            border:
-                1px solid
-                rgba(110,168,255,.18);
+        border: 1px solid rgba(110, 168, 255, 0.18);
 
-            border-radius:
-                14px;
-        }
+        border-radius: 14px;
+      }
 
-        .mode-card h4 {
-            margin:
-                0 0 8px;
+      .mode-card h4 {
+        margin: 0 0 8px;
 
-            color:
-                white;
+        color: white;
 
-            font-size:
-                17px;
-        }
+        font-size: 17px;
+      }
 
-        .mode-card p {
-            margin:
-                0;
+      .mode-card p {
+        margin: 0;
 
-            color:
-                #b8d4ff;
+        color: #b8d4ff;
 
-            font-size:
-                13px;
+        font-size: 13px;
 
-            line-height:
-                1.45;
-        }
+        line-height: 1.45;
+      }
 
-
-        /* =========================
+      /* =========================
            LAST UPDATED
         ========================= */
 
-        .events-updated {
-            display:
-                flex;
+      .events-updated {
+        display: flex;
 
-            justify-content:
-                space-between;
+        justify-content: space-between;
 
-            align-items:
-                center;
+        align-items: center;
 
-            margin-top:
-                25px;
+        margin-top: 25px;
 
-            padding:
-                12px 5px 0;
+        padding: 12px 5px 0;
 
-            color:
-                #718a99;
+        color: #718a99;
 
-            font-size:
-                13px;
-        }
+        font-size: 13px;
+      }
 
-        .events-updated strong {
-            color:
-                #6ea8ff;
+      .events-updated strong {
+        color: #6ea8ff;
 
-            font-weight:
-                normal;
-        }
+        font-weight: normal;
+      }
 
-
-        /* =========================
+      /* =========================
            FOOTER
         ========================= */
 
-        .footer-1 {
-            width:
-                100%;
+      .footer-1 {
+        width: 100%;
 
-            text-align:
-                center;
+        text-align: center;
 
-            background:
-                rgba(0,0,0,.95);
+        background: rgba(0, 0, 0, 0.95);
 
-            padding:
-                25px 15px;
+        padding: 25px 15px;
 
-            margin-top:
-                auto;
-        }
+        margin-top: auto;
+      }
 
-        .footer-1 h3 {
-            margin:
-                0 0 15px;
+      .footer-1 h3 {
+        margin: 0 0 15px;
 
-            color:
-                #4d8dff;
+        color: #4d8dff;
 
-            font-family:
-                monospace;
+        font-family: monospace;
 
-            font-size:
-                20px;
+        font-size: 20px;
 
-            text-shadow:
-                0 0 10px
-                rgba(77, 141, 255, .45);
-        }
+        text-shadow: 0 0 10px rgba(77, 141, 255, 0.45);
+      }
 
-        .footer-1 p {
-            margin:
-                0;
+      .footer-1 p {
+        margin: 0;
 
-            color:
-                #718a99;
-        }
+        color: #718a99;
+      }
 
-
-        /* =========================
+      /* =========================
            MOBILE
         ========================= */
 
-        @media (max-width: 768px) {
-
-            .events-page {
-                padding-top:
-                    95px;
-            }
-
-            .events-header {
-                padding:
-                    25px 15px;
-            }
-
-            .events-header h1 {
-                font-size:
-                    32px;
-            }
-
-            .events-header p {
-                font-size:
-                    15px;
-            }
-
-            .events-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    12px;
-            }
-
-            .event-card {
-                padding:
-                    12px;
-
-                border-radius:
-                    15px;
-            }
-
-            .event-image {
-                height:
-                    110px;
-            }
-
-            .event-image img {
-                width:
-                    90px;
-
-                height:
-                    90px;
-            }
-
-            .event-card h3 {
-                font-size:
-                    16px;
-            }
-
-            .event-info p {
-                font-size:
-                    13px;
-
-                padding:
-                    7px 0;
-            }
-
-            .events-profile {
-                padding:
-                    22px;
-
-                margin-top:
-                    35px;
-            }
+      @media (max-width: 768px) {
+        .events-page {
+          padding-top: 95px;
         }
 
+        .events-header {
+          padding: 25px 15px;
+        }
 
-        /* =========================
+        .events-header h1 {
+          font-size: 32px;
+        }
+
+        .events-header p {
+          font-size: 15px;
+        }
+
+        .events-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 12px;
+        }
+
+        .event-card {
+          padding: 12px;
+
+          border-radius: 15px;
+        }
+
+        .event-image {
+          height: 110px;
+        }
+
+        .event-image img {
+          width: 90px;
+
+          height: 90px;
+        }
+
+        .event-card h3 {
+          font-size: 16px;
+        }
+
+        .event-info p {
+          font-size: 13px;
+
+          padding: 7px 0;
+        }
+
+        .events-profile {
+          padding: 22px;
+
+          margin-top: 35px;
+        }
+      }
+
+      /* =========================
            SMALL PHONES
         ========================= */
 
-        @media (max-width: 667px) {
-
-            .events-header h1 {
-                font-size:
-                    28px;
-            }
-
-            .events-header p {
-                font-size:
-                    14px;
-            }
-
-            .events-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    8px;
-            }
-
-            .event-card {
-                padding:
-                    9px;
-
-                border-radius:
-                    13px;
-            }
-
-            .event-image {
-                height:
-                    90px;
-            }
-
-            .event-image img {
-                width:
-                    70px;
-
-                height:
-                    70px;
-            }
-
-            .event-card h3 {
-                font-size:
-                    14px;
-
-                margin:
-                    7px 0 12px;
-            }
-
-            .event-info p {
-                font-size:
-                    12px;
-
-                padding:
-                    6px 0;
-            }
-
-            .events-profile {
-                width:
-                    calc(100% - 16px);
-
-                padding:
-                    18px;
-
-                border-radius:
-                    18px;
-            }
-
-            .events-profile-header h2 {
-                font-size:
-                    26px;
-            }
-
-            .events-profile-header p {
-                font-size:
-                    13px;
-            }
-
-            .events-profile-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    9px;
-            }
-
-            .events-info-box {
-                padding:
-                    12px;
-
-                border-radius:
-                    12px;
-            }
-
-            .events-info-box h3 {
-                font-size:
-                    15px;
-
-                margin-bottom:
-                    9px;
-            }
-
-            .events-info-box li {
-                font-size:
-                    11px;
-
-                margin:
-                    5px 0;
-            }
-
-            .mode-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .events-updated {
-                font-size:
-                    11px;
-            }
+      @media (max-width: 667px) {
+        .events-header h1 {
+          font-size: 28px;
         }
 
+        .events-header p {
+          font-size: 14px;
+        }
+
+        .events-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 8px;
+        }
+
+        .event-card {
+          padding: 9px;
+
+          border-radius: 13px;
+        }
+
+        .event-image {
+          height: 90px;
+        }
+
+        .event-image img {
+          width: 70px;
+
+          height: 70px;
+        }
+
+        .event-card h3 {
+          font-size: 14px;
+
+          margin: 7px 0 12px;
+        }
+
+        .event-info p {
+          font-size: 12px;
+
+          padding: 6px 0;
+        }
+
+        .events-profile {
+          width: calc(100% - 16px);
+
+          padding: 18px;
+
+          border-radius: 18px;
+        }
+
+        .events-profile-header h2 {
+          font-size: 26px;
+        }
+
+        .events-profile-header p {
+          font-size: 13px;
+        }
+
+        .events-profile-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 9px;
+        }
+
+        .events-info-box {
+          padding: 12px;
+
+          border-radius: 12px;
+        }
+
+        .events-info-box h3 {
+          font-size: 15px;
+
+          margin-bottom: 9px;
+        }
+
+        .events-info-box li {
+          font-size: 11px;
+
+          margin: 5px 0;
+        }
+
+        .mode-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .events-updated {
+          font-size: 11px;
+        }
+      }
     </style>
+  </head>
 
-</head>
-
-
-<body>
-
-
+  <body>
     <!-- =========================
          NAVIGATION
     ========================= -->
 
     <nav class="ognav">
+      <a href="./index.html">
+        <img
+          class="index-logo"
+          src="./images/Blox Values Logo.png"
+          alt="Blox Values"
+        />
+      </a>
 
-        <a href="./index.html">
+      <div class="nav-links">
+        <a href="./index.html"> Home </a>
 
-            <img
-                class="index-logo"
-                src="./images/Blox Values Logo.png"
-                alt="Blox Values"
-            >
+        <a href="./values.html"> Values </a>
 
-        </a>
+        <a href="./calculator.html"> Calculator </a>
 
-        <div class="nav-links">
-
-            <a href="./index.html">
-                Home
-            </a>
-
-            <a href="./values.html">
-                Values
-            </a>
-
-            <a href="./calculator.html">
-                Calculator
-            </a>
-
-            <a href="./info.html">
-                Info
-            </a>
-
-        </div>
-
+        <a href="./info.html"> Info </a>
+      </div>
     </nav>
-
 
     <!-- =========================
          EVENTS PAGE
     ========================= -->
 
     <main class="events-page">
-
-
-        <!-- =========================
+      <!-- =========================
              HERO
         ========================= -->
 
-        <header class="events-header">
+      <header class="events-header">
+        <h1>🎉 Events</h1>
 
-            <h1>
-                🎉 Events
-            </h1>
+        <p>
+          Explore special event items and compare their values, demand, Robux
+          prices, trends, and sources.
+        </p>
+      </header>
 
-            <p>
-                Explore special event items and compare
-                their values, demand, Robux prices,
-                trends, and sources.
-            </p>
-
-        </header>
-
-
-        <!-- =========================
+      <!-- =========================
              EVENT VARIANTS
         ========================= -->
 
-        <section class="events-section">
+      <section class="events-section">
+        <h2 class="events-section-title">Event Variants</h2>
 
-            <h2 class="events-section-title">
-                Event Variants
-            </h2>
-
-
-            <div class="events-grid">
-
-
-                <!-- =========================
+        <div class="events-grid">
+          <!-- =========================
                      MEME
                 ========================= -->
 
-                <article class="event-card">
+          <article class="event-card">
+            <div class="event-image">
+              <img src="./images/Meme.png" alt="Meme" />
+            </div>
 
-                    <div class="event-image">
+            <h3>Meme</h3>
 
-                        <img
-                            src="./images/Meme.png"
-                            alt="Meme"
-                        >
+            <div class="event-info">
+              <p>
+                <span> Value </span>
 
-                    </div>
+                <strong> 4.1B </strong>
+              </p>
 
-                    <h3>
-                        Meme
-                    </h3>
+              <p>
+                <span> Demand </span>
 
-                    <div class="event-info">
+                <strong class="demand-high"> 8/10 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Value
-                            </span>
+              <p>
+                <span> Robux </span>
 
-                            <strong>
-                                4.1B
-                            </strong>
-                        </p>
+                <strong> 0 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Demand
-                            </span>
+              <p>
+                <span> Trend </span>
 
-                            <strong class="demand-high">
-                                8/10
-                            </strong>
-                        </p>
+                <strong> ↔ </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Robux
-                            </span>
+              <p>
+                <span> Source </span>
 
-                            <strong>
-                                0
-                            </strong>
-                        </p>
+                <strong> Event </strong>
+              </p>
+            </div>
+          </article>
 
-                        <p>
-                            <span>
-                                Trend
-                            </span>
-
-                            <strong>
-                                ↔
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Source
-                            </span>
-
-                            <strong>
-                                Event
-                            </strong>
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =========================
+          <!-- =========================
                      RABID SKIN
                 ========================= -->
 
-                <article class="event-card">
+          <article class="event-card">
+            <div class="event-image">
+              <img src="./images/Rabid-Skin.png" alt="Rabid Skin" />
+            </div>
 
-                    <div class="event-image">
+            <h3>Rabid Skin</h3>
 
-                        <img
-                            src="./images/Rabid-Skin.png"
-                            alt="Rabid Skin"
-                        >
+            <div class="event-info">
+              <p>
+                <span> Value </span>
 
-                    </div>
+                <strong> 17B </strong>
+              </p>
 
-                    <h3>
-                        Rabid Skin
-                    </h3>
+              <p>
+                <span> Demand </span>
 
-                    <div class="event-info">
+                <strong class="demand-high"> 9/10 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Value
-                            </span>
+              <p>
+                <span> Robux </span>
 
-                            <strong>
-                                6.92B
-                            </strong>
-                        </p>
+                <strong> 0 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Demand
-                            </span>
+              <p>
+                <span> Trend </span>
 
-                            <strong class="demand-high">
-                                9/10
-                            </strong>
-                        </p>
+                <strong> ↗ </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Robux
-                            </span>
+              <p>
+                <span> Source </span>
 
-                            <strong>
-                                0
-                            </strong>
-                        </p>
+                <strong> Event </strong>
+              </p>
+            </div>
+          </article>
 
-                        <p>
-                            <span>
-                                Trend
-                            </span>
-
-                            <strong>
-                                ↗
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Source
-                            </span>
-
-                            <strong>
-                                Event
-                            </strong>
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =========================
+          <!-- =========================
                      DOG BLADE
                 ========================= -->
 
-                <article class="event-card">
+          <article class="event-card">
+            <div class="event-image">
+              <img src="./images/Dog_Blade.png" alt="Dog Blade" />
+            </div>
 
-                    <div class="event-image">
+            <h3>Dog Blade</h3>
 
-                        <img
-                            src="./images/Dog_Blade.png"
-                            alt="Dog Blade"
-                        >
+            <div class="event-info">
+              <p>
+                <span> Value </span>
 
-                    </div>
+                <strong> 1.4B </strong>
+              </p>
 
-                    <h3>
-                        Dog Blade
-                    </h3>
+              <p>
+                <span> Demand </span>
 
-                    <div class="event-info">
+                <strong class="demand-high"> 8/10 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Value
-                            </span>
+              <p>
+                <span> Robux </span>
 
-                            <strong>
-                                400M
-                            </strong>
-                        </p>
+                <strong> 0 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Demand
-                            </span>
+              <p>
+                <span> Trend </span>
 
-                            <strong class="demand-medium">
-                                6/10
-                            </strong>
-                        </p>
+                <strong> ↔ </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Robux
-                            </span>
+              <p>
+                <span> Source </span>
 
-                            <strong>
-                                0
-                            </strong>
-                        </p>
+                <strong> Event </strong>
+              </p>
+            </div>
+          </article>
 
-                        <p>
-                            <span>
-                                Trend
-                            </span>
-
-                            <strong>
-                                ↔
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Source
-                            </span>
-
-                            <strong>
-                                Event
-                            </strong>
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =========================
+          <!-- =========================
                      DOGHOUSE FRAME BREAK
                 ========================= -->
 
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <img
-                            src="./images/Doghouse-Frame-Break.png"
-                            alt="Doghouse Frame Break"
-                        >
-
-                    </div>
-
-                    <h3>
-                        Doghouse Frame Break
-                    </h3>
-
-                    <div class="event-info">
-
-                        <p>
-                            <span>
-                                Value
-                            </span>
-
-                            <strong>
-                                6.67B
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Demand
-                            </span>
-
-                            <strong class="demand-high">
-                                9/10
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Robux
-                            </span>
-
-                            <strong>
-                                0
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Trend
-                            </span>
-
-                            <strong>
-                                ↗
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Source
-                            </span>
-
-                            <strong>
-                                Event
-                            </strong>
-                        </p>
-
-                    </div>
-
-                </article>
-
-
+          <article class="event-card">
+            <div class="event-image">
+              <img
+                src="./images/Doghouse-Frame-Break.png"
+                alt="Doghouse Frame Break"
+              />
             </div>
 
-        </section>
+            <h3>Doghouse Frame Break</h3>
 
+            <div class="event-info">
+              <p>
+                <span> Value </span>
 
-        <!-- =========================
+                <strong> 10B </strong>
+              </p>
+
+              <p>
+                <span> Demand </span>
+
+                <strong class="demand-high"> 9/10 </strong>
+              </p>
+
+              <p>
+                <span> Robux </span>
+
+                <strong> 0 </strong>
+              </p>
+
+              <p>
+                <span> Trend </span>
+
+                <strong> ↗ </strong>
+              </p>
+
+              <p>
+                <span> Source </span>
+
+                <strong> Event </strong>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================
              EVENTS PROFILE
         ========================= -->
 
-        <section class="events-profile">
+      <section class="events-profile">
+        <div class="events-profile-header">
+          <h2>🎉 About Events</h2>
 
+          <p>
+            A quick overview of event items, their uses, strengths, and
+            collecting value.
+          </p>
+        </div>
 
-            <div class="events-profile-header">
-
-                <h2>
-                    🎉 About Events
-                </h2>
-
-                <p>
-                    A quick overview of event items,
-                    their uses, strengths, and collecting value.
-                </p>
-
-            </div>
-
-
-            <div class="events-profile-grid">
-
-
-                <!-- =========================
+        <div class="events-profile-grid">
+          <!-- =========================
                      EVENT DATA
                 ========================= -->
 
-                <div class="events-info-box">
+          <div class="events-info-box">
+            <h3>📊 Event Data</h3>
 
-                    <h3>
-                        📊 Event Data
-                    </h3>
+            <ul>
+              <li>Meme</li>
 
-                    <ul>
+              <li>Rabid Skin</li>
 
-                        <li>
-                            Meme
-                        </li>
+              <li>Dog Blade</li>
 
-                        <li>
-                            Rabid Skin
-                        </li>
+              <li>Doghouse Frame Break</li>
 
-                        <li>
-                            Dog Blade
-                        </li>
+              <li>Event items may have limited availability.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Doghouse Frame Break
-                        </li>
-
-                        <li>
-                            Event items may have limited
-                            availability.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- =========================
+          <!-- =========================
                      USES
                 ========================= -->
 
-                <div class="events-info-box">
+          <div class="events-info-box">
+            <h3>✨ Uses</h3>
 
-                    <h3>
-                        ✨ Uses
-                    </h3>
+            <ul>
+              <li>Collecting limited event items.</li>
 
-                    <ul>
+              <li>Trading with other collectors.</li>
 
-                        <li>
-                            Collecting limited event items.
-                        </li>
+              <li>Showing off rare event rewards.</li>
 
-                        <li>
-                            Trading with other collectors.
-                        </li>
+              <li>Completing an event collection.</li>
 
-                        <li>
-                            Showing off rare event rewards.
-                        </li>
+              <li>Preserving limited items after an event ends.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Completing an event collection.
-                        </li>
-
-                        <li>
-                            Preserving limited items after
-                            an event ends.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- =========================
+          <!-- =========================
                      PROS
                 ========================= -->
 
-                <div class="events-info-box pros-box">
+          <div class="events-info-box pros-box">
+            <h3>🟢 Pros</h3>
 
-                    <h3>
-                        🟢 Pros
-                    </h3>
+            <ul>
+              <li>Limited event availability.</li>
 
-                    <ul>
+              <li>Good collector appeal.</li>
 
-                        <li>
-                            Limited event availability.
-                        </li>
+              <li>Can become harder to obtain after events end.</li>
 
-                        <li>
-                            Good collector appeal.
-                        </li>
+              <li>Unique designs and themes.</li>
 
-                        <li>
-                            Can become harder to obtain
-                            after events end.
-                        </li>
+              <li>Useful for collectors and traders.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Unique designs and themes.
-                        </li>
-
-                        <li>
-                            Useful for collectors and traders.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- =========================
+          <!-- =========================
                      CONS
                 ========================= -->
 
-                <div class="events-info-box cons-box">
+          <div class="events-info-box cons-box">
+            <h3>🔴 Cons</h3>
 
-                    <h3>
-                        🔴 Cons
-                    </h3>
+            <ul>
+              <li>Availability can depend on events.</li>
 
-                    <ul>
+              <li>Values may change as demand changes.</li>
 
-                        <li>
-                            Availability can depend on events.
-                        </li>
+              <li>Some event items may be difficult to trade fairly.</li>
 
-                        <li>
-                            Values may change as demand changes.
-                        </li>
+              <li>Limited supply can make pricing unpredictable.</li>
 
-                        <li>
-                            Some event items may be difficult
-                            to trade fairly.
-                        </li>
+              <li>Not every collector will want every event item.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Limited supply can make pricing
-                            unpredictable.
-                        </li>
-
-                        <li>
-                            Not every collector will want
-                            every event item.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- =========================
+          <!-- =========================
                      BEST FOR
                 ========================= -->
 
-                <div class="events-info-box best-for-box">
+          <div class="events-info-box best-for-box">
+            <h3>🎯 Best For</h3>
 
-                    <h3>
-                        🎯 Best For
-                    </h3>
+            <ul>
+              <li>Collectors.</li>
 
-                    <ul>
+              <li>Event-item traders.</li>
 
-                        <li>
-                            Collectors.
-                        </li>
+              <li>Players who like limited items.</li>
 
-                        <li>
-                            Event-item traders.
-                        </li>
+              <li>Players building themed collections.</li>
 
-                        <li>
-                            Players who like limited items.
-                        </li>
+              <li>Players interested in rare cosmetics.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Players building themed collections.
-                        </li>
-
-                        <li>
-                            Players interested in rare cosmetics.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- =========================
+          <!-- =========================
                      VARIANTS
                 ========================= -->
 
-                <div class="events-info-box">
+          <div class="events-info-box">
+            <h3>🎨 Variants</h3>
 
-                    <h3>
-                        🎨 Variants
-                    </h3>
+            <ul>
+              <li>Meme</li>
 
-                    <ul>
+              <li>Rabid-Dog-Blade</li>
 
-                        <li>
-                            Meme
-                        </li>
+              <li>Dog Blade</li>
 
-                        <li>
-                            Rabid-Dog-Blade
-                        </li>
+              <li>Doghouse Frame Break</li>
+            </ul>
+          </div>
+        </div>
 
-                        <li>
-                            Dog Blade
-                        </li>
-
-                        <li>
-                            Doghouse Frame Break
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =========================
+        <!-- =========================
                  EVENT TYPES
             ========================= -->
 
-            <div class="mode-section">
+        <div class="mode-section">
+          <h3>🎉 Event Types</h3>
 
-                <h3>
-                    🎉 Event Types
-                </h3>
+          <div class="mode-grid">
+            <div class="mode-card">
+              <h4>🎭 Cosmetics</h4>
 
-                <div class="mode-grid">
-
-
-                    <div class="mode-card">
-
-                        <h4>
-                            🎭 Cosmetics
-                        </h4>
-
-                        <p>
-                            Event rewards can provide
-                            unique cosmetic designs and
-                            appearances for collectors.
-                        </p>
-
-                    </div>
-
-
-                    <div class="mode-card">
-
-                        <h4>
-                            🏆 Limited
-                        </h4>
-
-                        <p>
-                            Limited event items can become
-                            harder to obtain once their
-                            original event is over.
-                        </p>
-
-                    </div>
-
-
-                    <div class="mode-card">
-
-                        <h4>
-                            💎 Collecting
-                        </h4>
-
-                        <p>
-                            Event items are especially useful
-                            for players who enjoy collecting
-                            rare and unusual items.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
+              <p>
+                Event rewards can provide unique cosmetic designs and
+                appearances for collectors.
+              </p>
             </div>
 
+            <div class="mode-card">
+              <h4>🏆 Limited</h4>
 
-            <!-- =========================
+              <p>
+                Limited event items can become harder to obtain once their
+                original event is over.
+              </p>
+            </div>
+
+            <div class="mode-card">
+              <h4>💎 Collecting</h4>
+
+              <p>
+                Event items are especially useful for players who enjoy
+                collecting rare and unusual items.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- =========================
                  LAST UPDATED
             ========================= -->
 
-            <div class="events-updated">
+        <div class="events-updated">
+          <span> Last Updated </span>
 
-                <span>
-                    Last Updated
-                </span>
+          <strong> 15 August 2026 </strong>
+        </div>
+      </section>
 
-                <strong>
-                    15 August 2026
-                </strong>
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =========================
+      <!-- =========================
              FOOTER
         ========================= -->
 
-        <footer class="footer-1">
+      <footer class="footer-1">
+        <h3>Blox Values</h3>
 
-            <h3>
-                Blox Values
-            </h3>
-
-            <p>
-                Events Collection
-            </p>
-
-        </footer>
-
-
+        <p>Events Collection</p>
+      </footer>
     </main>
-
-
-</body>
-
+  </body>
 </html>

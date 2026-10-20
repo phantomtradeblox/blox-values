@@ -1,1539 +1,1070 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Blox Values - Gravity Fruit</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
 
-        * {
-            box-sizing: border-box;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-        }
+      body {
+        color: white;
 
-        body {
-            color: white;
+        font-family: Arial, Helvetica, sans-serif;
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+        background:
+          linear-gradient(rgba(5, 15, 35, 0.84), rgba(3, 9, 37, 0.95)),
+          url("./images/Perm-Gravity.webp");
 
-            background:
-                linear-gradient(
-                    rgba(5, 15, 35, .84),
-                    rgba(3, 9, 37, .95)
-                ),
-                url("./images/Perm-Gravity.webp");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        overflow-x: hidden;
 
-            overflow-x: hidden;
+        min-height: 100vh;
 
-            min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-            display: flex;
-            flex-direction: column;
-        }
-
-
-        /* =========================
+      /* =========================
            PAGE
         ========================= */
 
-        .gravity-page {
-            width: 100%;
+      .gravity-page {
+        width: 100%;
 
-            min-height: 100vh;
+        min-height: 100vh;
 
-            padding-top: 110px;
-            padding-bottom: 0;
+        padding-top: 110px;
+        padding-bottom: 0;
 
-            display: flex;
-            flex-direction: column;
+        display: flex;
+        flex-direction: column;
 
-            flex: 1;
-        }
+        flex: 1;
+      }
 
-
-        /* =========================
+      /* =========================
            HERO
         ========================= */
 
-        .gravity-header {
-            width:
-                min(850px, calc(100% - 30px));
+      .gravity-header {
+        width: min(850px, calc(100% - 30px));
 
-            margin:
-                0 auto 45px;
+        margin: 0 auto 45px;
 
-            padding:
-                35px 25px;
+        padding: 35px 25px;
 
-            text-align: center;
+        text-align: center;
 
-            background:
-                rgba(5, 15, 35, .82);
+        background: rgba(5, 15, 35, 0.82);
 
-            border:
-                1px solid
-                rgba(77, 141, 255, .45);
+        border: 1px solid rgba(77, 141, 255, 0.45);
 
-            border-radius:
-                25px;
+        border-radius: 25px;
 
-            box-shadow:
-                0 0 35px
-                rgba(77, 141, 255, .18);
+        box-shadow: 0 0 35px rgba(77, 141, 255, 0.18);
 
-            backdrop-filter:
-                blur(5px);
-        }
+        backdrop-filter: blur(5px);
+      }
 
-        .gravity-header h1 {
-            margin: 0;
+      .gravity-header h1 {
+        margin: 0;
 
-            font-size: 46px;
+        font-size: 46px;
 
-            color: white;
+        color: white;
 
-            text-shadow:
-                0 0 15px #4d8dff,
-                0 0 35px rgba(77, 141, 255, .4);
-        }
+        text-shadow:
+          0 0 15px #4d8dff,
+          0 0 35px rgba(77, 141, 255, 0.4);
+      }
 
-        .gravity-header p {
-            margin:
-                14px auto 0;
+      .gravity-header p {
+        margin: 14px auto 0;
 
-            max-width:
-                680px;
+        max-width: 680px;
 
-            color:
-                #b8d4ff;
+        color: #b8d4ff;
 
-            font-size:
-                17px;
+        font-size: 17px;
 
-            line-height:
-                1.6;
-        }
+        line-height: 1.6;
+      }
 
-
-        /* =========================
+      /* =========================
            VARIANTS
         ========================= */
 
-        .gravity-section {
-            width:
-                min(1050px, calc(100% - 30px));
+      .gravity-section {
+        width: min(1050px, calc(100% - 30px));
 
-            margin:
-                0 auto;
-        }
+        margin: 0 auto;
+      }
 
-        .gravity-section-title {
-            text-align:
-                center;
+      .gravity-section-title {
+        text-align: center;
 
-            color:
-                #6ea8ff;
+        color: #6ea8ff;
 
-            font-size:
-                31px;
+        font-size: 31px;
 
-            margin:
-                0 0 25px;
+        margin: 0 0 25px;
 
-            text-shadow:
-                0 0 10px
-                rgba(110, 168, 255, .65);
-        }
+        text-shadow: 0 0 10px rgba(110, 168, 255, 0.65);
+      }
 
-        .gravity-grid {
-            display:
-                grid;
+      .gravity-grid {
+        display: grid;
 
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
-            gap:
-                20px;
+        gap: 20px;
 
-            width:
-                100%;
-        }
+        width: 100%;
+      }
 
-
-        /* =========================
+      /* =========================
            CARDS
         ========================= */
 
-        .gravity-card {
-            width:
-                100%;
+      .gravity-card {
+        width: 100%;
 
-            min-width:
-                0;
+        min-width: 0;
 
-            padding:
-                18px;
+        padding: 18px;
 
-            text-align:
-                center;
+        text-align: center;
 
-            background:
-                rgba(5, 10, 25, .94);
+        background: rgba(5, 10, 25, 0.94);
 
-            border:
-                2px solid
-                rgba(77, 141, 255, .65);
+        border: 2px solid rgba(77, 141, 255, 0.65);
 
-            border-radius:
-                20px;
+        border-radius: 20px;
 
-            box-shadow:
-                0 0 20px
-                rgba(77, 141, 255, .13);
+        box-shadow: 0 0 20px rgba(77, 141, 255, 0.13);
 
-            transition:
-                transform .25s,
-                box-shadow .25s,
-                border-color .25s;
-        }
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
 
-        .gravity-card:hover {
-            transform:
-                translateY(-5px);
+      .gravity-card:hover {
+        transform: translateY(-5px);
 
-            border-color:
-                #6ea8ff;
+        border-color: #6ea8ff;
 
-            box-shadow:
-                0 0 30px
-                rgba(110, 168, 255, .35);
-        }
+        box-shadow: 0 0 30px rgba(110, 168, 255, 0.35);
+      }
 
-
-        /* =========================
+      /* =========================
            IMAGES
         ========================= */
 
-        .gravity-image {
-            width:
-                100%;
+      .gravity-image {
+        width: 100%;
 
-            height:
-                155px;
+        height: 155px;
 
-            display:
-                flex;
+        display: flex;
 
-            align-items:
-                center;
+        align-items: center;
 
-            justify-content:
-                center;
+        justify-content: center;
 
-            overflow:
-                hidden;
-        }
+        overflow: hidden;
+      }
 
-        .gravity-image img {
-            width:
-                135px;
+      .gravity-image img {
+        width: 135px;
 
-            height:
-                135px;
+        height: 135px;
 
-            max-width:
-                100%;
+        max-width: 100%;
 
-            max-height:
-                100%;
+        max-height: 100%;
 
-            object-fit:
-                contain;
+        object-fit: contain;
 
-            transition:
-                transform .25s;
-        }
+        transition: transform 0.25s;
+      }
 
-        .gravity-card:hover
-        .gravity-image img {
-            transform:
-                scale(1.08);
-        }
+      .gravity-card:hover .gravity-image img {
+        transform: scale(1.08);
+      }
 
-
-        /* =========================
+      /* =========================
            NAME
         ========================= */
 
-        .gravity-card h3 {
-            margin:
-                10px 0 18px;
+      .gravity-card h3 {
+        margin: 10px 0 18px;
 
-            color:
-                white;
+        color: white;
 
-            font-size:
-                21px;
-        }
+        font-size: 21px;
+      }
 
-
-        /* =========================
+      /* =========================
            VALUE INFO
         ========================= */
 
-        .gravity-info {
-            width:
-                100%;
-        }
+      .gravity-info {
+        width: 100%;
+      }
 
-        .gravity-info p {
-            display:
-                flex;
+      .gravity-info p {
+        display: flex;
 
-            justify-content:
-                space-between;
+        justify-content: space-between;
 
-            align-items:
-                center;
+        align-items: center;
 
-            width:
-                100%;
+        width: 100%;
 
-            margin:
-                0;
+        margin: 0;
 
-            padding:
-                9px 0;
+        padding: 9px 0;
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-            color:
-                #b8d4ff;
-        }
+        color: #b8d4ff;
+      }
 
-        .gravity-info p:last-child {
-            border-bottom:
-                none;
-        }
+      .gravity-info p:last-child {
+        border-bottom: none;
+      }
 
-        .gravity-info strong {
-            color:
-                #6ea8ff;
-        }
+      .gravity-info strong {
+        color: #6ea8ff;
+      }
 
-
-        /* =========================
+      /* =========================
            DEMAND
         ========================= */
 
-        .demand-low {
-            color:
-                #ff5555 !important;
-        }
+      .demand-low {
+        color: #ff5555 !important;
+      }
 
-        .demand-medium {
-            color:
-                #ffd84d !important;
-        }
+      .demand-medium {
+        color: #ffd84d !important;
+      }
 
-        .demand-high {
-            color:
-                #00ff66 !important;
-        }
+      .demand-high {
+        color: #00ff66 !important;
+      }
 
-
-        /* =========================
+      /* =========================
            PROFILE
         ========================= */
 
-        .gravity-profile {
-            width:
-                min(900px, calc(100% - 30px));
+      .gravity-profile {
+        width: min(900px, calc(100% - 30px));
 
-            margin:
-                55px auto 40px;
+        margin: 55px auto 40px;
 
-            padding:
-                30px;
+        padding: 30px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(5, 15, 40, .97),
-                    rgba(6, 14, 30, .95)
-                );
+        background: linear-gradient(
+          145deg,
+          rgba(5, 15, 40, 0.97),
+          rgba(6, 14, 30, 0.95)
+        );
 
-            border:
-                1px solid
-                rgba(77, 141, 255, .45);
+        border: 1px solid rgba(77, 141, 255, 0.45);
 
-            border-radius:
-                25px;
+        border-radius: 25px;
 
-            box-shadow:
-                0 0 30px
-                rgba(77, 141, 255, .12);
+        box-shadow: 0 0 30px rgba(77, 141, 255, 0.12);
 
-            position:
-                relative;
+        position: relative;
 
-            overflow:
-                hidden;
-        }
+        overflow: hidden;
+      }
 
-
-        /* =========================
+      /* =========================
            PROFILE HEADER
         ========================= */
 
-        .gravity-profile-header {
-            text-align:
-                center;
+      .gravity-profile-header {
+        text-align: center;
 
-            margin-bottom:
-                30px;
-        }
+        margin-bottom: 30px;
+      }
 
-        .gravity-profile-header h2 {
-            margin:
-                0;
+      .gravity-profile-header h2 {
+        margin: 0;
 
-            font-size:
-                32px;
+        font-size: 32px;
 
-            color:
-                white;
+        color: white;
 
-            text-shadow:
-                0 0 12px #4d8dff;
-        }
+        text-shadow: 0 0 12px #4d8dff;
+      }
 
-        .gravity-profile-header p {
-            margin:
-                8px 0 0;
+      .gravity-profile-header p {
+        margin: 8px 0 0;
 
-            color:
-                #b8d4ff;
+        color: #b8d4ff;
 
-            font-size:
-                15px;
-        }
+        font-size: 15px;
+      }
 
-
-        /* =========================
+      /* =========================
            PROFILE GRID
         ========================= */
 
-        .gravity-profile-grid {
-            display:
-                grid;
+      .gravity-profile-grid {
+        display: grid;
 
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
-            gap:
-                15px;
-        }
+        gap: 15px;
+      }
 
-
-        /* =========================
+      /* =========================
            INFO BOXES
         ========================= */
 
-        .gravity-info-box {
-            padding:
-                18px;
+      .gravity-info-box {
+        padding: 18px;
 
-            background:
-                rgba(77, 141, 255, .045);
+        background: rgba(77, 141, 255, 0.045);
 
-            border:
-                1px solid
-                rgba(77, 141, 255, .18);
+        border: 1px solid rgba(77, 141, 255, 0.18);
 
-            border-radius:
-                16px;
+        border-radius: 16px;
 
-            min-width:
-                0;
+        min-width: 0;
 
-            transition:
-                .2s;
-        }
+        transition: 0.2s;
+      }
 
-        .gravity-info-box:hover {
-            border-color:
-                rgba(110, 168, 255, .55);
+      .gravity-info-box:hover {
+        border-color: rgba(110, 168, 255, 0.55);
 
-            background:
-                rgba(77, 141, 255, .07);
+        background: rgba(77, 141, 255, 0.07);
 
-            transform:
-                translateY(-2px);
-        }
+        transform: translateY(-2px);
+      }
 
-        .gravity-info-box h3 {
-            margin:
-                0 0 13px;
+      .gravity-info-box h3 {
+        margin: 0 0 13px;
 
-            color:
-                #6ea8ff;
+        color: #6ea8ff;
 
-            font-size:
-                19px;
+        font-size: 19px;
 
-            text-shadow:
-                0 0 7px
-                rgba(110, 168, 255, .4);
-        }
+        text-shadow: 0 0 7px rgba(110, 168, 255, 0.4);
+      }
 
-        .gravity-info-box ul {
-            margin:
-                0;
+      .gravity-info-box ul {
+        margin: 0;
 
-            padding-left:
-                20px;
-        }
+        padding-left: 20px;
+      }
 
-        .gravity-info-box li {
-            color:
-                #d6e5ff;
+      .gravity-info-box li {
+        color: #d6e5ff;
 
-            margin:
-                7px 0;
+        margin: 7px 0;
 
-            line-height:
-                1.4;
+        line-height: 1.4;
 
-            font-size:
-                14px;
-        }
+        font-size: 14px;
+      }
 
-
-        /* =========================
+      /* =========================
            COMBAT MODES
         ========================= */
 
-        .mode-section {
-            margin-top:
-                25px;
-        }
+      .mode-section {
+        margin-top: 25px;
+      }
 
-        .mode-section h3 {
-            margin:
-                0 0 15px;
+      .mode-section h3 {
+        margin: 0 0 15px;
 
-            color:
-                #6ea8ff;
+        color: #6ea8ff;
 
-            font-size:
-                20px;
+        font-size: 20px;
 
-            text-shadow:
-                0 0 7px
-                rgba(110, 168, 255, .35);
-        }
+        text-shadow: 0 0 7px rgba(110, 168, 255, 0.35);
+      }
 
-        .mode-grid {
-            display:
-                grid;
+      .mode-grid {
+        display: grid;
 
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
 
-            gap:
-                12px;
-        }
+        gap: 12px;
+      }
 
-        .mode-card {
-            padding:
-                15px;
+      .mode-card {
+        padding: 15px;
 
-            text-align:
-                center;
+        text-align: center;
 
-            background:
-                rgba(0,0,0,.25);
+        background: rgba(0, 0, 0, 0.25);
 
-            border:
-                1px solid
-                rgba(110,168,255,.18);
+        border: 1px solid rgba(110, 168, 255, 0.18);
 
-            border-radius:
-                14px;
-        }
+        border-radius: 14px;
+      }
 
-        .mode-card h4 {
-            margin:
-                0 0 8px;
+      .mode-card h4 {
+        margin: 0 0 8px;
 
-            color:
-                white;
+        color: white;
 
-            font-size:
-                17px;
-        }
+        font-size: 17px;
+      }
 
-        .mode-card p {
-            margin:
-                0;
+      .mode-card p {
+        margin: 0;
 
-            color:
-                #b8d4ff;
+        color: #b8d4ff;
 
-            font-size:
-                13px;
+        font-size: 13px;
 
-            line-height:
-                1.45;
-        }
+        line-height: 1.45;
+      }
 
-
-        /* =========================
+      /* =========================
            LAST UPDATED
         ========================= */
 
-        .gravity-updated {
-            display:
-                flex;
+      .gravity-updated {
+        display: flex;
 
-            justify-content:
-                space-between;
+        justify-content: space-between;
 
-            align-items:
-                center;
+        align-items: center;
 
-            margin-top:
-                25px;
+        margin-top: 25px;
 
-            padding:
-                12px 5px 0;
+        padding: 12px 5px 0;
 
-            color:
-                #718a99;
+        color: #718a99;
 
-            font-size:
-                13px;
-        }
+        font-size: 13px;
+      }
 
-        .gravity-updated strong {
-            color:
-                #6ea8ff;
+      .gravity-updated strong {
+        color: #6ea8ff;
 
-            font-weight:
-                normal;
-        }
+        font-weight: normal;
+      }
 
-
-        /* =========================
+      /* =========================
            FOOTER
         ========================= */
 
-        .footer-1 {
-            width:
-                100%;
+      .footer-1 {
+        width: 100%;
 
-            text-align:
-                center;
+        text-align: center;
 
-            background:
-                rgba(0,0,0,.95);
+        background: rgba(0, 0, 0, 0.95);
 
-            padding:
-                25px 15px;
+        padding: 25px 15px;
 
-            margin-top:
-                auto;
-        }
+        margin-top: auto;
+      }
 
-        .footer-1 h3 {
-            margin:
-                0 0 15px;
+      .footer-1 h3 {
+        margin: 0 0 15px;
 
-            color:
-                #4d8dff;
+        color: #4d8dff;
 
-            font-family:
-                monospace;
+        font-family: monospace;
 
-            font-size:
-                20px;
+        font-size: 20px;
 
-            text-shadow:
-                0 0 10px
-                rgba(77, 141, 255, .45);
-        }
+        text-shadow: 0 0 10px rgba(77, 141, 255, 0.45);
+      }
 
-        .footer-1 p {
-            margin:
-                0;
+      .footer-1 p {
+        margin: 0;
 
-            color:
-                #718a99;
-        }
+        color: #718a99;
+      }
 
-
-        /* =========================
+      /* =========================
            MOBILE
         ========================= */
 
-        @media (max-width: 768px) {
-
-            .gravity-page {
-                padding-top:
-                    95px;
-            }
-
-            .gravity-header {
-                padding:
-                    25px 15px;
-            }
-
-            .gravity-header h1 {
-                font-size:
-                    32px;
-            }
-
-            .gravity-header p {
-                font-size:
-                    15px;
-            }
-
-            .gravity-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    12px;
-            }
-
-            .gravity-card {
-                padding:
-                    12px;
-
-                border-radius:
-                    15px;
-            }
-
-            .gravity-image {
-                height:
-                    110px;
-            }
-
-            .gravity-image img {
-                width:
-                    90px;
-
-                height:
-                    90px;
-            }
-
-            .gravity-card h3 {
-                font-size:
-                    16px;
-            }
-
-            .gravity-info p {
-                font-size:
-                    13px;
-
-                padding:
-                    7px 0;
-            }
-
-            .gravity-profile {
-                padding:
-                    22px;
-
-                margin-top:
-                    35px;
-            }
+      @media (max-width: 768px) {
+        .gravity-page {
+          padding-top: 95px;
         }
 
+        .gravity-header {
+          padding: 25px 15px;
+        }
 
-        /* =========================
+        .gravity-header h1 {
+          font-size: 32px;
+        }
+
+        .gravity-header p {
+          font-size: 15px;
+        }
+
+        .gravity-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 12px;
+        }
+
+        .gravity-card {
+          padding: 12px;
+
+          border-radius: 15px;
+        }
+
+        .gravity-image {
+          height: 110px;
+        }
+
+        .gravity-image img {
+          width: 90px;
+
+          height: 90px;
+        }
+
+        .gravity-card h3 {
+          font-size: 16px;
+        }
+
+        .gravity-info p {
+          font-size: 13px;
+
+          padding: 7px 0;
+        }
+
+        .gravity-profile {
+          padding: 22px;
+
+          margin-top: 35px;
+        }
+      }
+
+      /* =========================
            SMALL PHONES
         ========================= */
 
-        @media (max-width: 667px) {
-
-            .gravity-header h1 {
-                font-size:
-                    28px;
-            }
-
-            .gravity-header p {
-                font-size:
-                    14px;
-            }
-
-            .gravity-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    8px;
-            }
-
-            .gravity-card {
-                padding:
-                    9px;
-
-                border-radius:
-                    13px;
-            }
-
-            .gravity-image {
-                height:
-                    90px;
-            }
-
-            .gravity-image img {
-                width:
-                    70px;
-
-                height:
-                    70px;
-            }
-
-            .gravity-card h3 {
-                font-size:
-                    14px;
-
-                margin:
-                    7px 0 12px;
-            }
-
-            .gravity-info p {
-                font-size:
-                    12px;
-
-                padding:
-                    6px 0;
-            }
-
-            .gravity-profile {
-                width:
-                    calc(100% - 16px);
-
-                padding:
-                    18px;
-
-                border-radius:
-                    18px;
-            }
-
-            .gravity-profile-header h2 {
-                font-size:
-                    26px;
-            }
-
-            .gravity-profile-header p {
-                font-size:
-                    13px;
-            }
-
-            .gravity-profile-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap:
-                    9px;
-            }
-
-            .gravity-info-box {
-                padding:
-                    12px;
-
-                border-radius:
-                    12px;
-            }
-
-            .gravity-info-box h3 {
-                font-size:
-                    15px;
-
-                margin-bottom:
-                    9px;
-            }
-
-            .gravity-info-box li {
-                font-size:
-                    11px;
-
-                margin:
-                    5px 0;
-            }
-
-            .mode-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .gravity-updated {
-                font-size:
-                    11px;
-            }
+      @media (max-width: 667px) {
+        .gravity-header h1 {
+          font-size: 28px;
         }
 
+        .gravity-header p {
+          font-size: 14px;
+        }
+
+        .gravity-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 8px;
+        }
+
+        .gravity-card {
+          padding: 9px;
+
+          border-radius: 13px;
+        }
+
+        .gravity-image {
+          height: 90px;
+        }
+
+        .gravity-image img {
+          width: 70px;
+
+          height: 70px;
+        }
+
+        .gravity-card h3 {
+          font-size: 14px;
+
+          margin: 7px 0 12px;
+        }
+
+        .gravity-info p {
+          font-size: 12px;
+
+          padding: 6px 0;
+        }
+
+        .gravity-profile {
+          width: calc(100% - 16px);
+
+          padding: 18px;
+
+          border-radius: 18px;
+        }
+
+        .gravity-profile-header h2 {
+          font-size: 26px;
+        }
+
+        .gravity-profile-header p {
+          font-size: 13px;
+        }
+
+        .gravity-profile-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          gap: 9px;
+        }
+
+        .gravity-info-box {
+          padding: 12px;
+
+          border-radius: 12px;
+        }
+
+        .gravity-info-box h3 {
+          font-size: 15px;
+
+          margin-bottom: 9px;
+        }
+
+        .gravity-info-box li {
+          font-size: 11px;
+
+          margin: 5px 0;
+        }
+
+        .mode-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gravity-updated {
+          font-size: 11px;
+        }
+      }
     </style>
+  </head>
 
-</head>
-
-
-<body>
-
-
+  <body>
     <!-- =========================
          NAVIGATION
     ========================= -->
 
     <nav class="ognav">
+      <a href="./index.html">
+        <img
+          class="index-logo"
+          src="./images/Blox Values Logo.png"
+          alt="Blox Values"
+        />
+      </a>
 
-        <a href="./index.html">
+      <div class="nav-links">
+        <a href="./index.html"> Home </a>
 
-            <img
-                class="index-logo"
-                src="./images/Blox Values Logo.png"
-                alt="Blox Values"
-            >
+        <a href="./values.html"> Values </a>
 
-        </a>
+        <a href="./calculator.html"> Calculator </a>
 
-        <div class="nav-links">
-
-            <a href="./index.html">
-                Home
-            </a>
-
-            <a href="./values.html">
-                Values
-            </a>
-
-            <a href="./calculator.html">
-                Calculator
-            </a>
-
-            <a href="./info.html">
-                Info
-            </a>
-
-        </div>
-
+        <a href="./info.html"> Info </a>
+      </div>
     </nav>
-
 
     <!-- =========================
          GRAVITY PAGE
     ========================= -->
 
     <main class="gravity-page">
-
-
-        <!-- =========================
+      <!-- =========================
              HERO
         ========================= -->
 
-        <header class="gravity-header">
+      <header class="gravity-header">
+        <h1>🌌 Gravity Fruit</h1>
 
-            <h1>
-                🌌 Gravity Fruit
-            </h1>
+        <p>
+          Explore the Gravity family and compare its known versions by value,
+          demand, Robux price, trend, and source.
+        </p>
+      </header>
 
-            <p>
-                Explore the Gravity family and compare
-                its known versions by value, demand,
-                Robux price, trend, and source.
-            </p>
-
-        </header>
-
-
-        <!-- =========================
+      <!-- =========================
              GRAVITY VERSIONS
         ========================= -->
 
-        <section class="gravity-section">
+      <section class="gravity-section">
+        <h2 class="gravity-section-title">Gravity Versions</h2>
 
-            <h2 class="gravity-section-title">
-                Gravity Versions
-            </h2>
-
-
-            <div class="gravity-grid">
-
-
-                <!-- =========================
+        <div class="gravity-grid">
+          <!-- =========================
                      GRAVITY
                 ========================= -->
 
+          <article class="gravity-card">
+            <div class="gravity-image">
+              <img src="./images/Perm-Gravity.webp" alt="Gravity" />
+            </div>
 
-                <article class="gravity-card">
+            <h3>Perm Gravity</h3>
 
-                    <div class="gravity-image">
-                        <img src="./images/Perm-Gravity.webp"alt="Gravity">
-                    </div>
+            <div class="gravity-info">
+              <p>
+                <span> Value </span>
 
-                    <h3>
-                        Gravity
-                    </h3>
+                <strong> 10B </strong>
+              </p>
 
-                    <div class="gravity-info">
+              <p>
+                <span> Demand </span>
 
-                        <p>
-                            <span>
-                                Value
-                            </span>
+                <strong class="demand-medium"> 7/10 </strong>
+              </p>
 
-                            <strong>
-                                10B
-                            </strong>
-                        </p>
+              <p>
+                <span> Robux </span>
 
-                        <p>
-                            <span>
-                                Demand
-                            </span>
+                <strong> 2,300 </strong>
+              </p>
 
-                            <strong class="demand-medium">
-                                7/10
-                            </strong>
-                        </p>
+              <p>
+                <span> Trend </span>
 
-                        <p>
-                            <span>
-                                Robux
-                            </span>
+                <strong> ↔ </strong>
+              </p>
 
-                            <strong>
-                                2,300
-                            </strong>
-                        </p>
+              <p>
+                <span> Source </span>
 
-                        <p>
-                            <span>
-                                Trend
-                            </span>
+                <strong> Robux </strong>
+              </p>
+            </div>
+          </article>
 
-                            <strong>
-                                ↔
-                            </strong>
-                        </p>
+          <article class="gravity-card">
+            <div class="gravity-image">
+              <img src="./images/Gravity.png" alt="Gravity" />
+            </div>
 
-                        <p>
-                            <span>
-                                Source
-                            </span>
+            <h3>Gravity</h3>
 
-                            <strong>
-                                Robux
-                            </strong>
-                        </p>
+            <div class="gravity-info">
+              <p>
+                <span> Value </span>
 
-                    </div>
+                <strong> 20M </strong>
+              </p>
 
-                </article>
+              <p>
+                <span> Demand </span>
 
+                <strong class="demand-medium"> 6/10 </strong>
+              </p>
 
-                <article class="gravity-card">
+              <p>
+                <span> Robux </span>
 
-                    <div class="gravity-image">
-                        <img src="./images/Gravity.png"alt="Gravity">
-                    </div>
+                <strong> 0 </strong>
+              </p>
 
-                    <h3>
-                        Gravity
-                    </h3>
+              <p>
+                <span> Trend </span>
 
-                    <div class="gravity-info">
+                <strong> ↔ </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Value
-                            </span>
+              <p>
+                <span> Source </span>
 
-                            <strong>
-                                20M
-                            </strong>
-                        </p>
+                <strong> Dealer </strong>
+              </p>
+            </div>
+          </article>
 
-                        <p>
-                            <span>
-                                Demand
-                            </span>
+          <article class="gravity-card">
+            <div class="gravity-image">
+              <img src="./images/Starlight-Gravity.png" alt="Gravity" />
+            </div>
 
-                            <strong class="demand-medium">
-                                6/10
-                            </strong>
-                        </p>
+            <h3>Starlight Gravity</h3>
 
-                        <p>
-                            <span>
-                                Robux
-                            </span>
+            <div class="gravity-info">
+              <p>
+                <span> Value </span>
 
-                            <strong>
-                                0
-                            </strong>
-                        </p>
+                <strong> 420M </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Trend
-                            </span>
+              <p>
+                <span> Demand </span>
 
-                            <strong>
-                                ↔
-                            </strong>
-                        </p>
+                <strong class="demand-medium"> 6/10 </strong>
+              </p>
 
-                        <p>
-                            <span>
-                                Source
-                            </span>
+              <p>
+                <span> Robux </span>
 
-                            <strong>
-                                Dealer
-                            </strong>
-                        </p>
+                <strong> 0 </strong>
+              </p>
 
-                    </div>
+              <p>
+                <span> Trend </span>
 
-                </article>
+                <strong> ↔ </strong>
+              </p>
 
+              <p>
+                <span> Source </span>
 
-                <!-- =========================
+                <strong> Event </strong>
+              </p>
+            </div>
+          </article>
+
+          <!-- =========================
                      PLASTIC GRAVITY
                 ========================= -->
 
-                <article class="gravity-card">
-
-                    <div class="gravity-image">
-
-                        <img
-                            src="./images/Plastic-Gravity.png"
-                            alt="Plastic Gravity"
-                        >
-
-                    </div>
-
-                    <h3>
-                        Plastic Gravity
-                    </h3>
-
-                    <div class="gravity-info">
-
-                        <p>
-                            <span>
-                                Value
-                            </span>
-
-                            <strong>
-                                70M
-                            </strong>
-                        </p>
-                        <p>
-                            <span>
-                                Demand
-                            </span>
-
-                            <strong class="demand-low">
-                                3/10
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Robux
-                            </span>
-
-                            <strong>
-                                0
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Trend
-                            </span>
-
-                            <strong>
-                                ↔
-                            </strong>
-                        </p>
-
-                        <p>
-                            <span>
-                                Source
-                            </span>
-
-                            <strong>
-                                Event
-                            </strong>
-                        </p>
-
-                    </div>
-
-                </article>
-
-
+          <article class="gravity-card">
+            <div class="gravity-image">
+              <img src="./images/Plastic-Gravity.png" alt="Plastic Gravity" />
             </div>
 
-        </section>
+            <h3>Plastic Gravity</h3>
 
+            <div class="gravity-info">
+              <p>
+                <span> Value </span>
 
-        <!-- =========================
+                <strong> 70M </strong>
+              </p>
+              <p>
+                <span> Demand </span>
+
+                <strong class="demand-low"> 3/10 </strong>
+              </p>
+
+              <p>
+                <span> Robux </span>
+
+                <strong> 0 </strong>
+              </p>
+
+              <p>
+                <span> Trend </span>
+
+                <strong> ↔ </strong>
+              </p>
+
+              <p>
+                <span> Source </span>
+
+                <strong> Event </strong>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================
              GRAVITY PROFILE
         ========================= -->
 
-        <section class="gravity-profile">
+      <section class="gravity-profile">
+        <div class="gravity-profile-header">
+          <h2>🌌 About Gravity</h2>
 
+          <p>
+            A quick overview of Gravity's trading value, strengths, abilities,
+            and uses.
+          </p>
+        </div>
 
-            <div class="gravity-profile-header">
+        <div class="gravity-profile-grid">
+          <!-- FAMILY DATA -->
 
-                <h2>
-                    🌌 About Gravity
-                </h2>
+          <div class="gravity-info-box">
+            <h3>📊 Family Data</h3>
 
-                <p>
-                    A quick overview of Gravity's trading
-                    value, strengths, abilities, and uses.
-                </p>
+            <ul>
+              <li>Gravity value: 20M</li>
 
-            </div>
+              <li>Plastic Gravity value: 70M</li>
 
+              <li>Standard Gravity demand: 6/10.</li>
 
-            <div class="gravity-profile-grid">
+              <li>Gravity is a powerful high-tier fruit.</li>
 
+              <li>
+                Gravity focuses heavily on ranged attacks and battlefield
+                control.
+              </li>
+            </ul>
+          </div>
 
-                <!-- FAMILY DATA -->
+          <!-- ABILITIES -->
 
-                <div class="gravity-info-box">
+          <div class="gravity-info-box">
+            <h3>⚔️ Abilities</h3>
 
-                    <h3>
-                        📊 Family Data
-                    </h3>
+            <ul>
+              <li>Gravity-based ranged attacks.</li>
 
-                    <ul>
+              <li>Powerful area-of-effect attacks.</li>
 
-                        <li>
-                            Gravity value: 20M
-                        </li>
+              <li>Meteor and gravitational attacks.</li>
 
-                        <li>
-                            Plastic Gravity value: 70M
-                        </li>
+              <li>Strong battlefield control.</li>
 
-                        <li>
-                             Standard Gravity demand: 6/10.
-                        </li>
+              <li>Excellent pressure against groups of opponents.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Gravity is a powerful
-                            high-tier fruit.
-                        </li>
+          <!-- PROS -->
 
-                        <li>
-                            Gravity focuses heavily on
-                            ranged attacks and battlefield control.
-                        </li>
+          <div class="gravity-info-box">
+            <h3>🟢 Pros</h3>
 
-                    </ul>
+            <ul>
+              <li>Strong area damage.</li>
 
-                </div>
+              <li>Excellent ranged pressure.</li>
 
+              <li>Powerful gravitational attacks.</li>
 
-                <!-- ABILITIES -->
+              <li>Good PvP potential.</li>
 
-                <div class="gravity-info-box">
+              <li>Strong battlefield control.</li>
+            </ul>
+          </div>
 
-                    <h3>
-                        ⚔️ Abilities
-                    </h3>
+          <!-- CONS -->
 
-                    <ul>
-                        <li>
-                            Gravity-based ranged attacks.
-                        </li>
+          <div class="gravity-info-box">
+            <h3>🔴 Cons</h3>
 
-                        <li>
-                            Powerful area-of-effect attacks.
-                        </li>
+            <ul>
+              <li>Some attacks require good aim.</li>
 
-                        <li>
-                            Meteor and gravitational attacks.
-                        </li>
+              <li>Several moves have noticeable timing.</li>
 
-                        <li>
-                            Strong battlefield control.
-                        </li>
+              <li>Can be difficult against very mobile players.</li>
 
-                        <li>
-                            Excellent pressure against groups
-                            of opponents.
-                        </li>
-                    </ul>
+              <li>Requires practice to use effectively.</li>
 
-                </div>
+              <li>Not the easiest fruit for beginners.</li>
+            </ul>
+          </div>
 
+          <!-- BEST FOR -->
 
-                <!-- PROS -->
+          <div class="gravity-info-box">
+            <h3>🎯 Best For</h3>
 
-                <div class="gravity-info-box">
+            <ul>
+              <li>Aggressive PvP.</li>
 
-                    <h3>
-                        🟢 Pros
-                    </h3>
+              <li>Ranged combat.</li>
 
-                    <ul>
+              <li>Area-of-effect pressure.</li>
 
-                        <li>
-                            Strong area damage.
-                        </li>
+              <li>Battlefield control.</li>
 
-                        <li>
-                            Excellent ranged pressure.
-                        </li>
+              <li>Players who enjoy gravitational attacks.</li>
+            </ul>
+          </div>
 
-                        <li>
-                            Powerful gravitational attacks.
-                        </li>
+          <!-- VERSIONS -->
 
-                        <li>
-                            Good PvP potential.
-                        </li>
+          <div class="gravity-info-box">
+            <h3>✨ Versions</h3>
 
-                        <li>
-                            Strong battlefield control.
-                        </li>
+            <ul>
+              <li>Gravity</li>
 
-                    </ul>
+              <li>Starlight Gravity</li>
 
-                </div>
+              <li>Plastic Gravity</li>
+            </ul>
+          </div>
+        </div>
 
-
-                <!-- CONS -->
-
-                <div class="gravity-info-box">
-
-                    <h3>
-                        🔴 Cons
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            Some attacks require good aim.
-                        </li>
-
-                        <li>
-                            Several moves have noticeable timing.
-                        </li>
-
-                        <li>
-                            Can be difficult against very mobile players.
-                        </li>
-
-                        <li>
-                            Requires practice to use effectively.
-                        </li>
-
-                        <li>
-                            Not the easiest fruit for beginners.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- BEST FOR -->
-
-                <div class="gravity-info-box">
-
-                    <h3>
-                        🎯 Best For
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            Aggressive PvP.
-                        </li>
-
-                        <li>
-                            Ranged combat.
-                        </li>
-
-                        <li>
-                            Area-of-effect pressure.
-                        </li>
-
-                        <li>
-                            Battlefield control.
-                        </li>
-
-                        <li>
-                            Players who enjoy gravitational attacks.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- VERSIONS -->
-
-                <div class="gravity-info-box">
-
-                    <h3>
-                        ✨ Versions
-                    </h3>
-
-                    <ul>
-
-                        <li>
-                            Gravity
-                        </li>
-
-                        <li>
-                            Plastic Gravity
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =========================
+        <!-- =========================
                  COMBAT MODES
             ========================= -->
 
-            <div class="mode-section">
+        <div class="mode-section">
+          <h3>⚔️ Combat Modes</h3>
 
-                <h3>
-                    ⚔️ Combat Modes
-                </h3>
+          <div class="mode-grid">
+            <div class="mode-card">
+              <h4>🥊 PvP</h4>
 
-                <div class="mode-grid">
-
-
-                    <div class="mode-card">
-
-                        <h4>
-                            🥊 PvP
-                        </h4>
-
-                        <p>
-                            Strong PvP option with powerful
-                            ranged attacks, area damage,
-                            and gravitational pressure.
-                        </p>
-
-                    </div>
-
-
-                    <div class="mode-card">
-
-                        <h4>
-                            🌌 Gravity Attacks
-                        </h4>
-
-                        <p>
-                            Uses gravitational powers,
-                            meteors, and powerful ranged
-                            attacks to overwhelm opponents.
-                        </p>
-
-                    </div>
-
-
-                    <div class="mode-card">
-
-                        <h4>
-                            💥 Area Pressure
-                        </h4>
-
-                        <p>
-                            Large area attacks make Gravity
-                            effective for controlling space
-                            and pressuring multiple opponents.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
+              <p>
+                Strong PvP option with powerful ranged attacks, area damage, and
+                gravitational pressure.
+              </p>
             </div>
 
+            <div class="mode-card">
+              <h4>🌌 Gravity Attacks</h4>
 
-            <!-- LAST UPDATED -->
-
-            <div class="gravity-updated">
-
-                <span>
-                    Last Updated
-                </span>
-
-                <strong>
-                    15 August 2026
-                </strong>
-
+              <p>
+                Uses gravitational powers, meteors, and powerful ranged attacks
+                to overwhelm opponents.
+              </p>
             </div>
 
+            <div class="mode-card">
+              <h4>💥 Area Pressure</h4>
 
-        </section>
+              <p>
+                Large area attacks make Gravity effective for controlling space
+                and pressuring multiple opponents.
+              </p>
+            </div>
+          </div>
+        </div>
 
+        <!-- LAST UPDATED -->
 
-        <!-- =========================
+        <div class="gravity-updated">
+          <span> Last Updated </span>
+
+          <strong> 15 August 2026 </strong>
+        </div>
+      </section>
+
+      <!-- =========================
              FOOTER
         ========================= -->
 
-        <footer class="footer-1">
+      <footer class="footer-1">
+        <h3>Blox Values</h3>
 
-            <h3>
-                Blox Values
-            </h3>
-
-            <p>
-                Gravity Collection
-            </p>
-
-        </footer>
-
-
+        <p>Gravity Collection</p>
+      </footer>
     </main>
-
-
-</body>
-
+  </body>
 </html>
